@@ -25,6 +25,7 @@ namespace presentacion
             ArticuloNegocio Negocio = new ArticuloNegocio();
             listaArticulo = Negocio.listar();
             dgvArticulos.DataSource = listaArticulo;
+            dgvArticulos.Columns["IdArticulo"].Visible = false;
             cargarImagen(listaArticulo[0].Imagen);
         }
 

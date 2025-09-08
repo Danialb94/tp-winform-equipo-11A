@@ -3,11 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dominio;
 
 namespace negocio
 {
     internal class MarcaNegocio
     {
+        public List<Marca> listar()
 
+        {
+            List<Marca> lista = new List<Marca>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT mar.Id, mar.Descripcion FROM MARCAS mar");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Marca marca = new Marca();
+                    marca.IdMarca = (int)datos.Lector["Id"];
+                    marca.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    lista.Add(marca);
+                }
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+
+        }
     }
 }

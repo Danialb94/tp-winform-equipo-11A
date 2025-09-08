@@ -8,7 +8,7 @@ namespace dominio
 {
     public class Marca
     {
-        public int IdMarca { get; } // Porque en DB el valor del IdMarca tiene la propiedad 'IDENTITY'
+        public int IdMarca { get; set; }
 
         public string Descripcion { get; set; }
         
