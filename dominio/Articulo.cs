@@ -16,7 +16,11 @@ namespace dominio
         public Categoria DescripcionCat { get; set; }
         public decimal Precio { get; set; }
 
-       //List<Imagen> Imagenes;
+        public string Imagen;
+        //public List<string> Imagenes;
+
+        //Habría que encontrar la forma para que las imágenes funcionen como una lista
+        // y arreglar el tamaño de las imagenes que quedan giganti-enormess
        
 
 

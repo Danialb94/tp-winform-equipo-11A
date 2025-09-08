@@ -18,8 +18,8 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio from ARTICULOS A, CATEGORIAS C, MARCAS M Where A.IdMarca = M.Id and A.IdCategoria = C.Id");
-
+                datos.setearConsulta("SELECT art.Id, art.Codigo, art.Nombre, art.Descripcion, ISNULL(mar.Descripcion, 'Desconocida') as Marca, ISNULL(cat.Descripcion, 'Desconocida') as Categoria, Precio, img.ImagenUrl FROM ARTICULOS art LEFT JOIN CATEGORIAS cat ON art.IdCategoria = cat.Id LEFT JOIN MARCAS mar ON art.IdMarca = mar.Id LEFT JOIN IMAGENES img ON art.Id = img.IdArticulo");
+                datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
@@ -32,6 +32,8 @@ namespace negocio
                     articulo.DescripcionCat = new Categoria();
                     articulo.DescripcionCat.Descripcion = (string)datos.Lector["Categoria"];
                     articulo.Precio = (decimal)datos.Lector["Precio"];
+                    articulo.Imagen = (string)datos.Lector["ImagenUrl"];
+                    
 
                     lista.Add(articulo);
                 }
@@ -41,7 +43,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally {
