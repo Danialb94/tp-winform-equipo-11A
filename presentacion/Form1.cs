@@ -22,11 +22,7 @@ namespace presentacion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio Negocio = new ArticuloNegocio();
-            listaArticulo = Negocio.listar();
-            dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["IdArticulo"].Visible = false;
-            cargarImagen(listaArticulo[0].Imagen);
+            cargarArticulos();
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -35,6 +31,14 @@ namespace presentacion
             cargarImagen(artSeleccionado.Imagen);
         }
 
+        private void cargarArticulos()
+        {
+            ArticuloNegocio Negocio = new ArticuloNegocio();
+            listaArticulo = Negocio.listar();
+            dgvArticulos.DataSource = listaArticulo;
+            dgvArticulos.Columns["IdArticulo"].Visible = false;
+            cargarImagen(listaArticulo[0].Imagen);
+        }
         private void cargarImagen(string imagen)
         {
             try
@@ -45,6 +49,13 @@ namespace presentacion
             {
                 pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
+        }
+
+        private void agregarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            cargarArticulos();
         }
     }
 }

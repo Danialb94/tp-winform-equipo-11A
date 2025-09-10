@@ -50,7 +50,7 @@ namespace negocio
                 comando.Connection = conexion;
 
                  try
-                  {
+                {
                 conexion.Open();
                 comando.ExecuteNonQuery();
                 }
