@@ -207,7 +207,7 @@
             // pbxArticulo
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxArticulo.Location = new System.Drawing.Point(699, 80);
+            this.pbxArticulo.Location = new System.Drawing.Point(699, 126);
             this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2);
             this.pbxArticulo.MaximumSize = new System.Drawing.Size(200, 300);
             this.pbxArticulo.MinimumSize = new System.Drawing.Size(200, 300);

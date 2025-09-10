@@ -42,12 +42,16 @@
             this.txtboxPrecioArticulo = new System.Windows.Forms.TextBox();
             this.btnAceptarNuevoArticulo = new System.Windows.Forms.Button();
             this.btnCancelarNuevoArticulo = new System.Windows.Forms.Button();
+            this.lblImagenArticulo = new System.Windows.Forms.Label();
+            this.txtboxUrlImagenArticulo = new System.Windows.Forms.TextBox();
+            this.picbImagenArticulo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picbImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigoArticulo
             // 
             this.lblCodigoArticulo.AutoSize = true;
-            this.lblCodigoArticulo.Location = new System.Drawing.Point(42, 58);
+            this.lblCodigoArticulo.Location = new System.Drawing.Point(46, 58);
             this.lblCodigoArticulo.Name = "lblCodigoArticulo";
             this.lblCodigoArticulo.Size = new System.Drawing.Size(43, 13);
             this.lblCodigoArticulo.TabIndex = 0;
@@ -65,7 +69,7 @@
             // lblDescripcionArticulo
             // 
             this.lblDescripcionArticulo.AutoSize = true;
-            this.lblDescripcionArticulo.Location = new System.Drawing.Point(42, 132);
+            this.lblDescripcionArticulo.Location = new System.Drawing.Point(23, 128);
             this.lblDescripcionArticulo.Name = "lblDescripcionArticulo";
             this.lblDescripcionArticulo.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcionArticulo.TabIndex = 2;
@@ -74,7 +78,7 @@
             // lblMarcaArticulo
             // 
             this.lblMarcaArticulo.AutoSize = true;
-            this.lblMarcaArticulo.Location = new System.Drawing.Point(42, 171);
+            this.lblMarcaArticulo.Location = new System.Drawing.Point(49, 168);
             this.lblMarcaArticulo.Name = "lblMarcaArticulo";
             this.lblMarcaArticulo.Size = new System.Drawing.Size(40, 13);
             this.lblMarcaArticulo.TabIndex = 3;
@@ -83,7 +87,7 @@
             // lblCategoriaArticulo
             // 
             this.lblCategoriaArticulo.AutoSize = true;
-            this.lblCategoriaArticulo.Location = new System.Drawing.Point(42, 213);
+            this.lblCategoriaArticulo.Location = new System.Drawing.Point(34, 213);
             this.lblCategoriaArticulo.Name = "lblCategoriaArticulo";
             this.lblCategoriaArticulo.Size = new System.Drawing.Size(55, 13);
             this.lblCategoriaArticulo.TabIndex = 4;
@@ -92,7 +96,7 @@
             // lblPrecioArticulo
             // 
             this.lblPrecioArticulo.AutoSize = true;
-            this.lblPrecioArticulo.Location = new System.Drawing.Point(42, 258);
+            this.lblPrecioArticulo.Location = new System.Drawing.Point(49, 245);
             this.lblPrecioArticulo.Name = "lblPrecioArticulo";
             this.lblPrecioArticulo.Size = new System.Drawing.Size(40, 13);
             this.lblPrecioArticulo.TabIndex = 5;
@@ -100,56 +104,57 @@
             // 
             // txtboxCodigoArticulo
             // 
-            this.txtboxCodigoArticulo.Location = new System.Drawing.Point(153, 51);
+            this.txtboxCodigoArticulo.Location = new System.Drawing.Point(113, 55);
             this.txtboxCodigoArticulo.Name = "txtboxCodigoArticulo";
-            this.txtboxCodigoArticulo.Size = new System.Drawing.Size(100, 20);
-            this.txtboxCodigoArticulo.TabIndex = 6;
+            this.txtboxCodigoArticulo.Size = new System.Drawing.Size(121, 20);
+            this.txtboxCodigoArticulo.TabIndex = 0;
             // 
             // txtboxNombreArticulo
             // 
-            this.txtboxNombreArticulo.Location = new System.Drawing.Point(153, 90);
+            this.txtboxNombreArticulo.Location = new System.Drawing.Point(113, 94);
             this.txtboxNombreArticulo.Name = "txtboxNombreArticulo";
-            this.txtboxNombreArticulo.Size = new System.Drawing.Size(100, 20);
-            this.txtboxNombreArticulo.TabIndex = 7;
+            this.txtboxNombreArticulo.Size = new System.Drawing.Size(121, 20);
+            this.txtboxNombreArticulo.TabIndex = 1;
             // 
             // txtboxDescripcionArticulo
             // 
-            this.txtboxDescripcionArticulo.Location = new System.Drawing.Point(153, 125);
+            this.txtboxDescripcionArticulo.Location = new System.Drawing.Point(113, 128);
             this.txtboxDescripcionArticulo.Name = "txtboxDescripcionArticulo";
-            this.txtboxDescripcionArticulo.Size = new System.Drawing.Size(100, 20);
-            this.txtboxDescripcionArticulo.TabIndex = 8;
+            this.txtboxDescripcionArticulo.Size = new System.Drawing.Size(121, 20);
+            this.txtboxDescripcionArticulo.TabIndex = 2;
             // 
             // cmbMarcaArticulo
             // 
             this.cmbMarcaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarcaArticulo.FormattingEnabled = true;
-            this.cmbMarcaArticulo.Location = new System.Drawing.Point(153, 168);
+            this.cmbMarcaArticulo.Location = new System.Drawing.Point(113, 168);
             this.cmbMarcaArticulo.Name = "cmbMarcaArticulo";
             this.cmbMarcaArticulo.Size = new System.Drawing.Size(121, 21);
-            this.cmbMarcaArticulo.TabIndex = 9;
+            this.cmbMarcaArticulo.TabIndex = 3;
             // 
             // cmbCategoriaArticulo
             // 
             this.cmbCategoriaArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoriaArticulo.FormattingEnabled = true;
-            this.cmbCategoriaArticulo.Location = new System.Drawing.Point(153, 210);
+            this.cmbCategoriaArticulo.Location = new System.Drawing.Point(113, 210);
             this.cmbCategoriaArticulo.Name = "cmbCategoriaArticulo";
             this.cmbCategoriaArticulo.Size = new System.Drawing.Size(121, 21);
-            this.cmbCategoriaArticulo.TabIndex = 10;
+            this.cmbCategoriaArticulo.TabIndex = 4;
+           
             // 
             // txtboxPrecioArticulo
             // 
-            this.txtboxPrecioArticulo.Location = new System.Drawing.Point(153, 255);
+            this.txtboxPrecioArticulo.Location = new System.Drawing.Point(113, 245);
             this.txtboxPrecioArticulo.Name = "txtboxPrecioArticulo";
-            this.txtboxPrecioArticulo.Size = new System.Drawing.Size(100, 20);
-            this.txtboxPrecioArticulo.TabIndex = 11;
+            this.txtboxPrecioArticulo.Size = new System.Drawing.Size(121, 20);
+            this.txtboxPrecioArticulo.TabIndex = 5;
             // 
             // btnAceptarNuevoArticulo
             // 
             this.btnAceptarNuevoArticulo.Location = new System.Drawing.Point(45, 340);
             this.btnAceptarNuevoArticulo.Name = "btnAceptarNuevoArticulo";
             this.btnAceptarNuevoArticulo.Size = new System.Drawing.Size(60, 22);
-            this.btnAceptarNuevoArticulo.TabIndex = 12;
+            this.btnAceptarNuevoArticulo.TabIndex = 7;
             this.btnAceptarNuevoArticulo.Text = "Aceptar";
             this.btnAceptarNuevoArticulo.UseVisualStyleBackColor = true;
             this.btnAceptarNuevoArticulo.Click += new System.EventHandler(this.btnAceptarNuevoArticulo_Click);
@@ -159,16 +164,45 @@
             this.btnCancelarNuevoArticulo.Location = new System.Drawing.Point(199, 339);
             this.btnCancelarNuevoArticulo.Name = "btnCancelarNuevoArticulo";
             this.btnCancelarNuevoArticulo.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarNuevoArticulo.TabIndex = 13;
+            this.btnCancelarNuevoArticulo.TabIndex = 8;
             this.btnCancelarNuevoArticulo.Text = "Cancelar";
             this.btnCancelarNuevoArticulo.UseVisualStyleBackColor = true;
             this.btnCancelarNuevoArticulo.Click += new System.EventHandler(this.btnCancelarNuevoArticulo_Click);
+            // 
+            // lblImagenArticulo
+            // 
+            this.lblImagenArticulo.AutoSize = true;
+            this.lblImagenArticulo.Location = new System.Drawing.Point(28, 283);
+            this.lblImagenArticulo.Name = "lblImagenArticulo";
+            this.lblImagenArticulo.Size = new System.Drawing.Size(61, 13);
+            this.lblImagenArticulo.TabIndex = 14;
+            this.lblImagenArticulo.Text = "Url Imagen:";
+            // 
+            // txtboxUrlImagenArticulo
+            // 
+            this.txtboxUrlImagenArticulo.Location = new System.Drawing.Point(113, 283);
+            this.txtboxUrlImagenArticulo.Name = "txtboxUrlImagenArticulo";
+            this.txtboxUrlImagenArticulo.Size = new System.Drawing.Size(121, 20);
+            this.txtboxUrlImagenArticulo.TabIndex = 6;
+            this.txtboxUrlImagenArticulo.Leave += new System.EventHandler(this.txtboxUrlImagenArticulo_Leave);
+            // 
+            // picbImagenArticulo
+            // 
+            this.picbImagenArticulo.Location = new System.Drawing.Point(293, 82);
+            this.picbImagenArticulo.Name = "picbImagenArticulo";
+            this.picbImagenArticulo.Size = new System.Drawing.Size(184, 183);
+            this.picbImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbImagenArticulo.TabIndex = 16;
+            this.picbImagenArticulo.TabStop = false;
             // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 404);
+            this.ClientSize = new System.Drawing.Size(502, 419);
+            this.Controls.Add(this.picbImagenArticulo);
+            this.Controls.Add(this.txtboxUrlImagenArticulo);
+            this.Controls.Add(this.lblImagenArticulo);
             this.Controls.Add(this.btnCancelarNuevoArticulo);
             this.Controls.Add(this.btnAceptarNuevoArticulo);
             this.Controls.Add(this.txtboxPrecioArticulo);
@@ -187,6 +221,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAltaArticulo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picbImagenArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +243,8 @@
         private System.Windows.Forms.TextBox txtboxPrecioArticulo;
         private System.Windows.Forms.Button btnAceptarNuevoArticulo;
         private System.Windows.Forms.Button btnCancelarNuevoArticulo;
+        private System.Windows.Forms.Label lblImagenArticulo;
+        private System.Windows.Forms.TextBox txtboxUrlImagenArticulo;
+        private System.Windows.Forms.PictureBox picbImagenArticulo;
     }
 }

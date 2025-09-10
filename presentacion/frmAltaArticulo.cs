@@ -37,8 +37,9 @@ namespace presentacion
                 articulo.Nombre = txtboxNombreArticulo.Text;
                 articulo.Descripcion = txtboxDescripcionArticulo.Text;
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
-                //articulo.DescripcionCat = (Categoria)cmbCategoriaArticulo.SelectedItem;
+                articulo.Categoria = (Categoria)cmbCategoriaArticulo.SelectedItem;
                 articulo.Precio = decimal.Parse(txtboxPrecioArticulo.Text);
+                articulo.Imagen = txtboxUrlImagenArticulo.Text;
                 negocio.agregar(articulo);
                 MessageBox.Show("Articulo agregado exitosamente");
                 Close();
@@ -53,12 +54,13 @@ namespace presentacion
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            //CategoriaNegocio categoriaNeg = new CategoriaNegocio();
+            CategoriaNegocio categoriaNeg = new CategoriaNegocio();
+
 
             try
             {
                 cmbMarcaArticulo.DataSource = marcaNegocio.listar();
-                //cmbCategoriaArticulo.DataSource = categoriaNeg.listar();
+                cmbCategoriaArticulo.DataSource = categoriaNeg.Listar();
             }
             catch (Exception ex)
             {
@@ -68,5 +70,24 @@ namespace presentacion
 
 
         }
+
+        private void txtboxUrlImagenArticulo_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtboxUrlImagenArticulo.Text);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                picbImagenArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                picbImagenArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+            }
+        }
+
+        
     }
 }
