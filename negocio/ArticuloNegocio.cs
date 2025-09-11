@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT art.Id, art.Codigo, art.Nombre, art.Descripcion, ISNULL(mar.Descripcion, 'Desconocida') as Marca, ISNULL(cat.Descripcion, 'Desconocida') as Categoria, Precio, img.ImagenUrl FROM ARTICULOS art LEFT JOIN CATEGORIAS cat ON art.IdCategoria = cat.Id LEFT JOIN MARCAS mar ON art.IdMarca = mar.Id LEFT JOIN IMAGENES img ON art.Id = img.IdArticulo");
+                datos.setearConsulta("SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria FROM ARTICULOS ART, MARCAS M, CATEGORIAS C WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id;");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -33,14 +33,16 @@ namespace negocio
                     articulo.Descripcion = (string)datos.Lector["Descripcion"];
                     articulo.Marca = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
+                    articulo.Marca.IdMarca = (int)datos.Lector["Id"];
                     articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
                     articulo.Categoria = new Categoria();
+                    articulo.Categoria.IDCategoria = (int)datos.Lector["Id"];
                     if (!(datos.Lector["Categoria"] is DBNull))
                     articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["Precio"] is DBNull))
                     articulo.Precio = (decimal)datos.Lector["Precio"];
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                    articulo.Imagen = (string)datos.Lector["ImagenUrl"];
+                    //if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    //articulo.Imagen = (string)datos.Lector["ImagenUrl"];
                     
 
                     lista.Add(articulo);
@@ -66,10 +68,10 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria, UrlImagen)values('"+nuevo.Codigo+"','"+nuevo.Nombre+"','"+nuevo.Descripcion+"',"+nuevo.Precio+",@IdMarca, @IdCategoria,@urlImagen)");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('"+nuevo.Codigo+"','"+nuevo.Nombre+"','"+nuevo.Descripcion+"',"+nuevo.Precio+",@IdMarca, @IdCategoria)");
                 datos.setearParametro("@IdMarca", nuevo.Marca.IdMarca);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.IDCategoria);
-                datos.setearParametro("@urlImagen", nuevo.Imagen);
+                //datos.setearParametro("@urlImagen", nuevo.Imagen);
                 datos.ejecutarAccion();
 
             }
@@ -83,6 +85,41 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void modificarArticulo(Articulo articulo)
+        {   
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio where Id = @id");
+                datos.setearParametro("@codigo", articulo.Codigo);
+                datos.setearParametro("@nombre", articulo.Nombre);
+                datos.setearParametro("@descripcion", articulo.Descripcion);
+                datos.setearParametro("@idMarca", articulo.Marca.IdMarca);
+                datos.setearParametro("@idCategoria", articulo.Categoria.IDCategoria);
+                datos.setearParametro("@precio", articulo.Precio);
+                datos.setearParametro("@id", articulo.IdArticulo);
+
+                datos.ejecutarAccion();
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+
+        }
+
     }
 
 }

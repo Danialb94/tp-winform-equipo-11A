@@ -15,11 +15,18 @@ namespace presentacion
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
         }
 
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
+        }
         private void btnCancelarNuevoArticulo_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,21 +34,34 @@ namespace presentacion
 
         private void btnAceptarNuevoArticulo_Click(object sender, EventArgs e)
         {   
-
-            Articulo articulo = new Articulo();
             ArticuloNegocio negocio = new ArticuloNegocio();
           
             try
             {
+                if (articulo == null)
+                   articulo = new Articulo();
+                
                 articulo.Codigo =txtboxCodigoArticulo.Text;
                 articulo.Nombre = txtboxNombreArticulo.Text;
                 articulo.Descripcion = txtboxDescripcionArticulo.Text;
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cmbCategoriaArticulo.SelectedItem;
                 articulo.Precio = decimal.Parse(txtboxPrecioArticulo.Text);
-                articulo.Imagen = txtboxUrlImagenArticulo.Text;
-                negocio.agregar(articulo);
-                MessageBox.Show("Articulo agregado exitosamente");
+                // articulo.Imagen = txtboxUrlImagenArticulo.Text;
+
+                if (articulo.IdArticulo != 0)
+                {
+                    negocio.modificarArticulo(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Articulo agregado exitosamente");
+                }
+
+            
+
                 Close();
             }
             catch (Exception ex)
@@ -54,13 +74,31 @@ namespace presentacion
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
+
             CategoriaNegocio categoriaNeg = new CategoriaNegocio();
 
 
             try
             {
                 cmbMarcaArticulo.DataSource = marcaNegocio.listar();
+                cmbMarcaArticulo.ValueMember = "IdMarca";
+                cmbMarcaArticulo.DisplayMember = "Descripcion";
                 cmbCategoriaArticulo.DataSource = categoriaNeg.Listar();
+                cmbCategoriaArticulo.ValueMember = "IdCategoria";
+                cmbCategoriaArticulo.DisplayMember= "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtboxCodigoArticulo.Text = articulo.Codigo;
+                    txtboxNombreArticulo.Text = articulo.Nombre;
+                    txtboxDescripcionArticulo.Text = articulo.Descripcion;
+                    txtboxPrecioArticulo.Text = articulo.Precio.ToString();
+                    // txtboxUrlImagenArticulo.Text = articulo.Imagen;
+                    //cargarImagen(articulo.Imagen);
+                    cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
+                    cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
+
+                }
             }
             catch (Exception ex)
             {

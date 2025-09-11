@@ -57,5 +57,16 @@ namespace presentacion
             alta.ShowDialog();
             cargarArticulos();
         }
+
+        private void modificarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Articulo articuloSeleccionado;
+            articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAltaArticulo modificar = new frmAltaArticulo(articuloSeleccionado);
+            modificar.ShowDialog();
+            cargarArticulos();
+        }
+
+        
     }
 }
