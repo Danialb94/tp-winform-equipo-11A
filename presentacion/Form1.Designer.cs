@@ -111,6 +111,7 @@
             this.verDetalleArticuloToolStripMenuItem.Name = "verDetalleArticuloToolStripMenuItem";
             this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.verDetalleArticuloToolStripMenuItem.Text = "Ver Detalle Articulo";
+            this.verDetalleArticuloToolStripMenuItem.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
             // 
             // categoriaToolStripMenuItem
             // 

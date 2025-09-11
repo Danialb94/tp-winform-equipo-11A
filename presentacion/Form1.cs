@@ -23,14 +23,21 @@ namespace presentacion
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarArticulos();
+        
             cboCampoArticulo.Items.Add("Código");
             cboCampoArticulo.Items.Add("Nombre");
             cboCampoArticulo.Items.Add("Descripción");
+            cboCampoArticulo.SelectedIndex = 0; 
+
+           
+            cboCriterioArticulos.SelectedIndex = 0; 
         }
+
+        
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
             {
                 Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -38,8 +45,8 @@ namespace presentacion
             }
         }
 
-            
-        
+
+
 
         private void cargarArticulos()
         {
@@ -95,7 +102,7 @@ namespace presentacion
                     negocio.eliminarArticulo(seleccionado.IdArticulo);
                     cargarArticulos();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -145,7 +152,7 @@ namespace presentacion
             ocultarColumnasArticulos();
         }
 
-     
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -169,15 +176,20 @@ namespace presentacion
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string opcion = cboCampoArticulo.SelectedItem.ToString();
-            if (opcion == "Código"|| opcion == "Nombre"||opcion=="Descripción")
+            if (cboCampoArticulo.SelectedItem != null)
             {
-                cboCriterioArticulos.Items.Clear();
-                cboCriterioArticulos.Items.Add("Comienza con");
-                cboCriterioArticulos.Items.Add("Termina con");
-                cboCriterioArticulos.Items.Add("Contiene");
+                string opcion = cboCampoArticulo.SelectedItem.ToString();
+
+                if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción")
+                {
+                    cboCriterioArticulos.Items.Clear();
+                    cboCriterioArticulos.Items.Add("Comienza con");
+                    cboCriterioArticulos.Items.Add("Termina con");
+                    cboCriterioArticulos.Items.Add("Contiene");
+                }
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -185,17 +197,47 @@ namespace presentacion
 
             try
             {
+                if (cboCampoArticulo.SelectedItem == null)
+                {
+                    MessageBox.Show("Seleccione un campo para filtrar.");
+                    return;
+                }
+
+                if (cboCriterioArticulos.SelectedItem == null)
+                {
+                    MessageBox.Show("Seleccione un criterio para filtrar.");
+                    return;
+                }
+
                 string campo = cboCampoArticulo.SelectedItem.ToString();
                 string criterio = cboCriterioArticulos.SelectedItem.ToString();
                 string filtro = txtboxFiltroAvanzadoArticulos.Text;
+
                 dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
+
+        private void verDetalleArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+                frmDetalleArticulo detalle = new frmDetalleArticulo(seleccionado);
+                detalle.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un artículo primero.");
+            }
+        }
+
     }
 }
+
