@@ -100,5 +100,18 @@ namespace presentacion
             frmAltaMarca alta = new frmAltaMarca();
             alta.ShowDialog();
         }
+
+        private void listadoDeCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+
+        }
+
+        private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria alta = new frmAltaCategoria();
+            alta.ShowDialog();
+        }
     }
 }
