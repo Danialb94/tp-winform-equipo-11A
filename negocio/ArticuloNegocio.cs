@@ -135,6 +135,99 @@ namespace negocio
                 throw ex;
             }
         }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria FROM ARTICULOS ART, MARCAS M, CATEGORIAS C WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id And ";
+                if (campo == "Código") {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Art.Codigo like '" + filtro+"%'";
+                            break;
+                        case "Termina con":
+                            consulta += "Art.Codigo like '%" + filtro+"'";
+                            break;
+                        default:
+                            consulta += "Art.Codigo like '%"+filtro+"%'";
+                            break;
+                    }
+                }
+                else if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Art.Nombre like '" + filtro + "%'";
+                            break;
+                        case "Termina con":
+                            consulta += "Art.Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Art.Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Art.Descripcion like '" + filtro + "%'";
+                            break;
+                        case "Termina con":
+                            consulta += "Art.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Art.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                    datos.setearConsulta(consulta);
+                    datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    articulo.IdArticulo = (int)datos.Lector["Id"];
+                    if (!(datos.Lector["Codigo"] is DBNull))
+                        articulo.Codigo = (string)datos.Lector["Codigo"];
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                        articulo.Nombre = (string)datos.Lector["Nombre"];
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                        articulo.Descripcion = (string)datos.Lector["Descripcion"];
+                    articulo.Marca = new Marca();
+                    if (!(datos.Lector["Marca"] is DBNull))
+                        articulo.Marca.IdMarca = (int)datos.Lector["Id"];
+                    articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.IDCategoria = (int)datos.Lector["Id"];
+                    if (!(datos.Lector["Categoria"] is DBNull))
+                        articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        articulo.Precio = (decimal)datos.Lector["Precio"];
+                    //if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    //articulo.Imagen = (string)datos.Lector["ImagenUrl"];
+
+
+                    lista.Add(articulo);
+                }
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            ;
+        }
     }
 
 }

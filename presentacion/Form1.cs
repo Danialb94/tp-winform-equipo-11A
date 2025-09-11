@@ -23,6 +23,9 @@ namespace presentacion
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarArticulos();
+            cboCampoArticulo.Items.Add("Código");
+            cboCampoArticulo.Items.Add("Nombre");
+            cboCampoArticulo.Items.Add("Descripción");
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -140,6 +143,59 @@ namespace presentacion
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
             ocultarColumnasArticulos();
+        }
+
+     
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampoArticulo.SelectedItem.ToString();
+            if (opcion == "Código"|| opcion == "Nombre"||opcion=="Descripción")
+            {
+                cboCriterioArticulos.Items.Clear();
+                cboCriterioArticulos.Items.Add("Comienza con");
+                cboCriterioArticulos.Items.Add("Termina con");
+                cboCriterioArticulos.Items.Add("Contiene");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                string campo = cboCampoArticulo.SelectedItem.ToString();
+                string criterio = cboCriterioArticulos.SelectedItem.ToString();
+                string filtro = txtboxFiltroAvanzadoArticulos.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

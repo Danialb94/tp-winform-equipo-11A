@@ -47,6 +47,13 @@
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             this.lblFiltroArticulos = new System.Windows.Forms.Label();
             this.txtboxFiltroArticulos = new System.Windows.Forms.TextBox();
+            this.lblCampoArticulo = new System.Windows.Forms.Label();
+            this.cboCampoArticulo = new System.Windows.Forms.ComboBox();
+            this.cboCriterioArticulos = new System.Windows.Forms.ComboBox();
+            this.lblCriterioArticulos = new System.Windows.Forms.Label();
+            this.lblFiltroAvanzadoArticulos = new System.Windows.Forms.Label();
+            this.txtboxFiltroAvanzadoArticulos = new System.Windows.Forms.TextBox();
+            this.btnFiltroAvanzado = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
@@ -175,13 +182,13 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(22, 80);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(654, 419);
+            this.dgvArticulos.Size = new System.Drawing.Size(654, 372);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -200,7 +207,7 @@
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbxArticulo.Location = new System.Drawing.Point(699, 126);
-            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2);
             this.pbxArticulo.MaximumSize = new System.Drawing.Size(200, 300);
             this.pbxArticulo.MinimumSize = new System.Drawing.Size(200, 300);
             this.pbxArticulo.Name = "pbxArticulo";
@@ -226,18 +233,92 @@
             this.txtboxFiltroArticulos.TabIndex = 5;
             this.txtboxFiltroArticulos.TextChanged += new System.EventHandler(this.txtboxFiltroArticulos_TextChanged);
             // 
+            // lblCampoArticulo
+            // 
+            this.lblCampoArticulo.AutoSize = true;
+            this.lblCampoArticulo.Location = new System.Drawing.Point(19, 493);
+            this.lblCampoArticulo.Name = "lblCampoArticulo";
+            this.lblCampoArticulo.Size = new System.Drawing.Size(43, 13);
+            this.lblCampoArticulo.TabIndex = 6;
+            this.lblCampoArticulo.Text = "Campo:";
+            // 
+            // cboCampoArticulo
+            // 
+            this.cboCampoArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCampoArticulo.FormattingEnabled = true;
+            this.cboCampoArticulo.Location = new System.Drawing.Point(78, 489);
+            this.cboCampoArticulo.Name = "cboCampoArticulo";
+            this.cboCampoArticulo.Size = new System.Drawing.Size(121, 21);
+            this.cboCampoArticulo.TabIndex = 7;
+            this.cboCampoArticulo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cboCriterioArticulos
+            // 
+            this.cboCriterioArticulos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCriterioArticulos.FormattingEnabled = true;
+            this.cboCriterioArticulos.Location = new System.Drawing.Point(273, 489);
+            this.cboCriterioArticulos.Name = "cboCriterioArticulos";
+            this.cboCriterioArticulos.Size = new System.Drawing.Size(121, 21);
+            this.cboCriterioArticulos.TabIndex = 8;
+            this.cboCriterioArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // lblCriterioArticulos
+            // 
+            this.lblCriterioArticulos.AutoSize = true;
+            this.lblCriterioArticulos.Location = new System.Drawing.Point(215, 493);
+            this.lblCriterioArticulos.Name = "lblCriterioArticulos";
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(42, 13);
+            this.lblCriterioArticulos.TabIndex = 9;
+            this.lblCriterioArticulos.Text = "Criterio:";
+            this.lblCriterioArticulos.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblFiltroAvanzadoArticulos
+            // 
+            this.lblFiltroAvanzadoArticulos.AutoSize = true;
+            this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(410, 493);
+            this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(83, 13);
+            this.lblFiltroAvanzadoArticulos.TabIndex = 10;
+            this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
+            this.lblFiltroAvanzadoArticulos.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // txtboxFiltroAvanzadoArticulos
+            // 
+            this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(509, 489);
+            this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
+            this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(100, 20);
+            this.txtboxFiltroAvanzadoArticulos.TabIndex = 11;
+            this.txtboxFiltroAvanzadoArticulos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnFiltroAvanzado
+            // 
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(625, 488);
+            this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
+            this.btnFiltroAvanzado.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltroAvanzado.TabIndex = 12;
+            this.btnFiltroAvanzado.Text = "Buscar";
+            this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
+            this.btnFiltroAvanzado.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 520);
+            this.Controls.Add(this.btnFiltroAvanzado);
+            this.Controls.Add(this.txtboxFiltroAvanzadoArticulos);
+            this.Controls.Add(this.lblFiltroAvanzadoArticulos);
+            this.Controls.Add(this.lblCriterioArticulos);
+            this.Controls.Add(this.cboCriterioArticulos);
+            this.Controls.Add(this.cboCampoArticulo);
+            this.Controls.Add(this.lblCampoArticulo);
             this.Controls.Add(this.txtboxFiltroArticulos);
             this.Controls.Add(this.lblFiltroArticulos);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal Catalogo";
@@ -272,6 +353,13 @@
         private System.Windows.Forms.ToolStripMenuItem listadoDeMarcaToolStripMenuItem;
         private System.Windows.Forms.Label lblFiltroArticulos;
         private System.Windows.Forms.TextBox txtboxFiltroArticulos;
+        private System.Windows.Forms.Label lblCampoArticulo;
+        private System.Windows.Forms.ComboBox cboCampoArticulo;
+        private System.Windows.Forms.ComboBox cboCriterioArticulos;
+        private System.Windows.Forms.Label lblCriterioArticulos;
+        private System.Windows.Forms.Label lblFiltroAvanzadoArticulos;
+        private System.Windows.Forms.TextBox txtboxFiltroAvanzadoArticulos;
+        private System.Windows.Forms.Button btnFiltroAvanzado;
     }
 }
 
