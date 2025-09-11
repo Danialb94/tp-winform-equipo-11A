@@ -27,17 +27,28 @@ namespace presentacion
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(artSeleccionado.Imagen);
+            
+            if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
+            {
+                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(artSeleccionado.Imagen);
+            }
         }
+
+            
+        
 
         private void cargarArticulos()
         {
             ArticuloNegocio Negocio = new ArticuloNegocio();
             listaArticulo = Negocio.listar();
             dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["IdArticulo"].Visible = false;
+            ocultarColumnasArticulos();
             cargarImagen(listaArticulo[0].Imagen);
+        }
+        private void ocultarColumnasArticulos()
+        {
+            dgvArticulos.Columns["IdArticulo"].Visible = false;
         }
 
         private void cargarImagen(string imagen)
@@ -74,7 +85,7 @@ namespace presentacion
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Este articulo se está por eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -112,6 +123,23 @@ namespace presentacion
         {
             frmAltaCategoria alta = new frmAltaCategoria();
             alta.ShowDialog();
+        }
+
+        private void txtboxFiltroArticulos_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtboxFiltroArticulos.Text;
+            if (filtro.Length >= 2)
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            ocultarColumnasArticulos();
         }
     }
 }

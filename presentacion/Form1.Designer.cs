@@ -45,6 +45,8 @@
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
+            this.lblFiltroArticulos = new System.Windows.Forms.Label();
+            this.txtboxFiltroArticulos = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
@@ -59,8 +61,8 @@
             this.marcaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1213, 29);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(910, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,34 +75,34 @@
             this.verDetalleArticuloToolStripMenuItem});
             this.articuloToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
-            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
+            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(85, 23);
             this.articuloToolStripMenuItem.Text = "Articulos";
             // 
             // agregarArticulosToolStripMenuItem
             // 
             this.agregarArticulosToolStripMenuItem.Name = "agregarArticulosToolStripMenuItem";
-            this.agregarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.agregarArticulosToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.agregarArticulosToolStripMenuItem.Text = "Agregar Articulos";
             this.agregarArticulosToolStripMenuItem.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
             // 
             // modificarArticulosToolStripMenuItem
             // 
             this.modificarArticulosToolStripMenuItem.Name = "modificarArticulosToolStripMenuItem";
-            this.modificarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.modificarArticulosToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.modificarArticulosToolStripMenuItem.Text = "Modificar Articulos";
             this.modificarArticulosToolStripMenuItem.Click += new System.EventHandler(this.modificarArticulosToolStripMenuItem_Click);
             // 
             // eliminarArticuloToolStripMenuItem
             // 
             this.eliminarArticuloToolStripMenuItem.Name = "eliminarArticuloToolStripMenuItem";
-            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.eliminarArticuloToolStripMenuItem.Text = "Eliminar Articulo";
             this.eliminarArticuloToolStripMenuItem.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
             // 
             // verDetalleArticuloToolStripMenuItem
             // 
             this.verDetalleArticuloToolStripMenuItem.Name = "verDetalleArticuloToolStripMenuItem";
-            this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.verDetalleArticuloToolStripMenuItem.Text = "Ver Detalle Articulo";
             // 
             // categoriaToolStripMenuItem
@@ -112,33 +114,33 @@
             this.eliminarCategoriaToolStripMenuItem});
             this.categoriaToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(113, 25);
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(94, 23);
             this.categoriaToolStripMenuItem.Text = "Categorias";
             // 
             // listadoDeCategoriaToolStripMenuItem
             // 
             this.listadoDeCategoriaToolStripMenuItem.Name = "listadoDeCategoriaToolStripMenuItem";
-            this.listadoDeCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.listadoDeCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.listadoDeCategoriaToolStripMenuItem.Text = "Listado de Categoria";
             this.listadoDeCategoriaToolStripMenuItem.Click += new System.EventHandler(this.listadoDeCategoriaToolStripMenuItem_Click);
             // 
             // agregarCategoriaToolStripMenuItem
             // 
             this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
-            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
             this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
             // 
             // modificarCategoriaToolStripMenuItem
             // 
             this.modificarCategoriaToolStripMenuItem.Name = "modificarCategoriaToolStripMenuItem";
-            this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.modificarCategoriaToolStripMenuItem.Text = "Modificar Categoria";
             // 
             // eliminarCategoriaToolStripMenuItem
             // 
             this.eliminarCategoriaToolStripMenuItem.Name = "eliminarCategoriaToolStripMenuItem";
-            this.eliminarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.eliminarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.eliminarCategoriaToolStripMenuItem.Text = "Eliminar Categoria";
             // 
             // marcaToolStripMenuItem
@@ -148,20 +150,20 @@
             this.agregarMarcaToolStripMenuItem});
             this.marcaToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F);
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(85, 25);
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.marcaToolStripMenuItem.Text = "Marcas";
             // 
             // listadoDeMarcaToolStripMenuItem
             // 
             this.listadoDeMarcaToolStripMenuItem.Name = "listadoDeMarcaToolStripMenuItem";
-            this.listadoDeMarcaToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.listadoDeMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
             this.listadoDeMarcaToolStripMenuItem.Text = "Listado de Marcas";
             this.listadoDeMarcaToolStripMenuItem.Click += new System.EventHandler(this.listadoDeMarcaToolStripMenuItem_Click);
             // 
             // agregarMarcaToolStripMenuItem
             // 
             this.agregarMarcaToolStripMenuItem.Name = "agregarMarcaToolStripMenuItem";
-            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
             this.agregarMarcaToolStripMenuItem.Text = "Agregar Marca";
             this.agregarMarcaToolStripMenuItem.Click += new System.EventHandler(this.agregarMarcaToolStripMenuItem_Click);
             // 
@@ -172,14 +174,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(29, 98);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvArticulos.Location = new System.Drawing.Point(22, 80);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(872, 516);
+            this.dgvArticulos.Size = new System.Drawing.Size(654, 419);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -187,35 +189,55 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(24, 48);
+            this.lblTitulo.Location = new System.Drawing.Point(17, 27);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(308, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(241, 25);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxArticulo.Location = new System.Drawing.Point(932, 155);
-            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbxArticulo.MaximumSize = new System.Drawing.Size(267, 369);
-            this.pbxArticulo.MinimumSize = new System.Drawing.Size(267, 369);
+            this.pbxArticulo.Location = new System.Drawing.Point(699, 126);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxArticulo.MaximumSize = new System.Drawing.Size(200, 300);
+            this.pbxArticulo.MinimumSize = new System.Drawing.Size(200, 300);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(267, 369);
+            this.pbxArticulo.Size = new System.Drawing.Size(200, 300);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxArticulo.TabIndex = 3;
             this.pbxArticulo.TabStop = false;
             // 
+            // lblFiltroArticulos
+            // 
+            this.lblFiltroArticulos.AutoSize = true;
+            this.lblFiltroArticulos.Location = new System.Drawing.Point(19, 60);
+            this.lblFiltroArticulos.Name = "lblFiltroArticulos";
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(66, 13);
+            this.lblFiltroArticulos.TabIndex = 4;
+            this.lblFiltroArticulos.Text = "Filtro Rápido";
+            // 
+            // txtboxFiltroArticulos
+            // 
+            this.txtboxFiltroArticulos.Location = new System.Drawing.Point(102, 57);
+            this.txtboxFiltroArticulos.Name = "txtboxFiltroArticulos";
+            this.txtboxFiltroArticulos.Size = new System.Drawing.Size(209, 20);
+            this.txtboxFiltroArticulos.TabIndex = 5;
+            this.txtboxFiltroArticulos.TextChanged += new System.EventHandler(this.txtboxFiltroArticulos_TextChanged);
+            // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 640);
+            this.ClientSize = new System.Drawing.Size(910, 520);
+            this.Controls.Add(this.txtboxFiltroArticulos);
+            this.Controls.Add(this.lblFiltroArticulos);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal Catalogo";
@@ -248,6 +270,8 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pbxArticulo;
         private System.Windows.Forms.ToolStripMenuItem listadoDeMarcaToolStripMenuItem;
+        private System.Windows.Forms.Label lblFiltroArticulos;
+        private System.Windows.Forms.TextBox txtboxFiltroArticulos;
     }
 }
 
