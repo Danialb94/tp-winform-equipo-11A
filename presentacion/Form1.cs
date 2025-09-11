@@ -67,6 +67,26 @@ namespace presentacion
             cargarArticulos();
         }
 
-        
+        private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Este articulo se está por eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminarArticulo(seleccionado.IdArticulo);
+                    cargarArticulos();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

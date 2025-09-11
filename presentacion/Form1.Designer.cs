@@ -77,7 +77,6 @@
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
             this.articuloToolStripMenuItem.Size = new System.Drawing.Size(78, 23);
             this.articuloToolStripMenuItem.Text = "Articulo";
-           
             // 
             // agregarArticulosToolStripMenuItem
             // 
@@ -98,6 +97,7 @@
             this.eliminarArticuloToolStripMenuItem.Name = "eliminarArticuloToolStripMenuItem";
             this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.eliminarArticuloToolStripMenuItem.Text = "Eliminar Articulo";
+            this.eliminarArticuloToolStripMenuItem.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
             // 
             // verDetalleArticuloToolStripMenuItem
             // 
