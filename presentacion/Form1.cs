@@ -39,6 +39,7 @@ namespace presentacion
             dgvArticulos.Columns["IdArticulo"].Visible = false;
             cargarImagen(listaArticulo[0].Imagen);
         }
+
         private void cargarImagen(string imagen)
         {
             try
@@ -87,6 +88,17 @@ namespace presentacion
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void listadoDeMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMarcas marcas = new frmMarcas();
+            marcas.ShowDialog();
+        }
+        private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca alta = new frmAltaMarca();
+            alta.ShowDialog();
         }
     }
 }

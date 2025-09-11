@@ -120,7 +120,6 @@ namespace negocio
 
         }
 
-
         public void eliminarArticulo(int id)
         {
             try
