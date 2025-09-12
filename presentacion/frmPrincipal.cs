@@ -132,6 +132,9 @@ namespace presentacion
         {
             frmAltaCategoria alta = new frmAltaCategoria();
             alta.ShowDialog();
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+
         }
 
         private void txtboxFiltroArticulos_TextChanged(object sender, EventArgs e)
@@ -237,6 +240,17 @@ namespace presentacion
             }
         }
 
+        private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria modificar = new frmCategoria(true,false);
+            modificar.ShowDialog();
+        }
+
+        private void eliminarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria eliminar = new frmCategoria(false, true);
+            eliminar.ShowDialog();
+        }
     }
 }
 

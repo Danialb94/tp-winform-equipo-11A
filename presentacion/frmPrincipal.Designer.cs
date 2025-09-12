@@ -144,12 +144,14 @@
             this.modificarCategoriaToolStripMenuItem.Name = "modificarCategoriaToolStripMenuItem";
             this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.modificarCategoriaToolStripMenuItem.Text = "Modificar Categoría";
+            this.modificarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.modificarCategoriaToolStripMenuItem_Click);
             // 
             // eliminarCategoriaToolStripMenuItem
             // 
             this.eliminarCategoriaToolStripMenuItem.Name = "eliminarCategoriaToolStripMenuItem";
             this.eliminarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.eliminarCategoriaToolStripMenuItem.Text = "Eliminar Categoría";
+            this.eliminarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.eliminarCategoriaToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem
             // 
@@ -158,7 +160,7 @@
             this.agregarMarcaToolStripMenuItem});
             this.marcaToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F);
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(85, 25);
             this.marcaToolStripMenuItem.Text = "Marcas";
             // 
             // listadoDeMarcaToolStripMenuItem
@@ -199,7 +201,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(23, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(307, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(308, 32);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
@@ -222,14 +224,14 @@
             this.lblFiltroArticulos.Location = new System.Drawing.Point(25, 74);
             this.lblFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroArticulos.Name = "lblFiltroArticulos";
-            this.lblFiltroArticulos.Size = new System.Drawing.Size(84, 16);
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(88, 17);
             this.lblFiltroArticulos.TabIndex = 4;
             this.lblFiltroArticulos.Text = "Filtro Rápido";
             // 
             // txtboxFiltroArticulos
             // 
             this.txtboxFiltroArticulos.Location = new System.Drawing.Point(136, 70);
-            this.txtboxFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxFiltroArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroArticulos.Name = "txtboxFiltroArticulos";
             this.txtboxFiltroArticulos.Size = new System.Drawing.Size(277, 22);
             this.txtboxFiltroArticulos.TabIndex = 5;
@@ -241,7 +243,7 @@
             this.lblCampoArticulo.Location = new System.Drawing.Point(25, 607);
             this.lblCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoArticulo.Name = "lblCampoArticulo";
-            this.lblCampoArticulo.Size = new System.Drawing.Size(54, 16);
+            this.lblCampoArticulo.Size = new System.Drawing.Size(56, 17);
             this.lblCampoArticulo.TabIndex = 6;
             this.lblCampoArticulo.Text = "Campo:";
             // 
@@ -250,7 +252,7 @@
             this.cboCampoArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampoArticulo.FormattingEnabled = true;
             this.cboCampoArticulo.Location = new System.Drawing.Point(104, 602);
-            this.cboCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCampoArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.cboCampoArticulo.Name = "cboCampoArticulo";
             this.cboCampoArticulo.Size = new System.Drawing.Size(160, 24);
             this.cboCampoArticulo.TabIndex = 7;
@@ -261,7 +263,7 @@
             this.cboCriterioArticulos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterioArticulos.FormattingEnabled = true;
             this.cboCriterioArticulos.Location = new System.Drawing.Point(364, 602);
-            this.cboCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCriterioArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.cboCriterioArticulos.Name = "cboCriterioArticulos";
             this.cboCriterioArticulos.Size = new System.Drawing.Size(160, 24);
             this.cboCriterioArticulos.TabIndex = 8;
@@ -273,7 +275,7 @@
             this.lblCriterioArticulos.Location = new System.Drawing.Point(287, 607);
             this.lblCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterioArticulos.Name = "lblCriterioArticulos";
-            this.lblCriterioArticulos.Size = new System.Drawing.Size(52, 16);
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(57, 17);
             this.lblCriterioArticulos.TabIndex = 9;
             this.lblCriterioArticulos.Text = "Criterio:";
             this.lblCriterioArticulos.Click += new System.EventHandler(this.label2_Click);
@@ -284,7 +286,7 @@
             this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(547, 607);
             this.lblFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
-            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(103, 16);
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(110, 17);
             this.lblFiltroAvanzadoArticulos.TabIndex = 10;
             this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
             this.lblFiltroAvanzadoArticulos.Click += new System.EventHandler(this.label3_Click);
@@ -292,7 +294,7 @@
             // txtboxFiltroAvanzadoArticulos
             // 
             this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(679, 602);
-            this.txtboxFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
             this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(132, 22);
             this.txtboxFiltroAvanzadoArticulos.TabIndex = 11;
@@ -301,7 +303,7 @@
             // btnFiltroAvanzado
             // 
             this.btnFiltroAvanzado.Location = new System.Drawing.Point(833, 601);
-            this.btnFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(100, 28);
             this.btnFiltroAvanzado.TabIndex = 12;

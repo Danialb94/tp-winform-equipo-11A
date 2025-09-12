@@ -14,40 +14,63 @@ namespace presentacion
 {
     public partial class frmAltaCategoria : Form
     {
+        private Categoria categoria = null;
         public frmAltaCategoria()
         {
             InitializeComponent();
         }
+        
+        public frmAltaCategoria(Categoria categoria)
+        {
+            InitializeComponent();
+            this.categoria = categoria;
+            Text = "Modificar Categoria";
+            btnAgregar.Text = "Aceptar";
+        }
 
+
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
+
+            try
+            {
+            
+                if (string.IsNullOrWhiteSpace(txtDescripcionCategoria.Text))
+                {
+                    MessageBox.Show("¡¡ Debe ingresar una Descripcion !!");
+                    return;
+                }
+
+                if (categoria == null)
+                {
+                    categoria = new Categoria();
+                    categoria.Descripcion = txtDescripcionCategoria.Text;
+                    negocio.agregar(categoria);
+                    MessageBox.Show("Categoria agregada Correctamente");
+                }
+                else
+                {
+                    categoria.Descripcion = txtDescripcionCategoria.Text;
+                    negocio.modificar(categoria);
+                    MessageBox.Show("Categoria Modificada Correctamente");
+                }
+
+                Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtDescripcionCategoria.Text))
-            {
-                MessageBox.Show("¡¡ Debe ingresar una Descripcion !!");
-                return;
-            }
 
-            Categoria nueva = new Categoria();
-            nueva.Descripcion = txtDescripcionCategoria.Text;
-
-            CategoriaNegocio negocio = new CategoriaNegocio();
-            
-            try
-            {
-                negocio.agregar(nueva);
-                MessageBox.Show("Categoria agregada Correctamente");
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al agregar: " + ex.Message);
-            }
-
-        }
     }
 }

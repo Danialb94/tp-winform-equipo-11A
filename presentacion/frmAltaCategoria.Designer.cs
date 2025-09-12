@@ -42,7 +42,7 @@ namespace presentacion
             this.lblAgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAgregarCategoria.Location = new System.Drawing.Point(31, 30);
             this.lblAgregarCategoria.Name = "lblAgregarCategoria";
-            this.lblAgregarCategoria.Size = new System.Drawing.Size(312, 39);
+            this.lblAgregarCategoria.Size = new System.Drawing.Size(300, 38);
             this.lblAgregarCategoria.TabIndex = 0;
             this.lblAgregarCategoria.Text = "Agregar Categoria";
             // 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dominio;
 
+
 namespace negocio
 {
     public class CategoriaNegocio
@@ -49,6 +50,47 @@ namespace negocio
             {
                 datos.setearConsulta("Insert into Categorias(Descripcion) values (@Descripcion)");
                 datos.setearParametro("@Descripcion", nueva.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Categoria categoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Update Categorias set Descripcion = @Descripcion where Id = @Id");
+                datos.setearParametro("@Descripcion", categoria.Descripcion);
+                datos.setearParametro("@Id",categoria.IDCategoria);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Delete From Categorias where Id = @Id");
+                datos.setearParametro("@Id",id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
