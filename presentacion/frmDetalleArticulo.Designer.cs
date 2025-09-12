@@ -41,6 +41,7 @@
             this.lblDetalleCategoria = new System.Windows.Forms.Label();
             this.lblDetallePrecio = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDetalleArticulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,11 +155,22 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // lblDetalleArticulo
+            // 
+            this.lblDetalleArticulo.AutoSize = true;
+            this.lblDetalleArticulo.Font = new System.Drawing.Font("Bookman Old Style", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleArticulo.Location = new System.Drawing.Point(86, 26);
+            this.lblDetalleArticulo.Name = "lblDetalleArticulo";
+            this.lblDetalleArticulo.Size = new System.Drawing.Size(265, 29);
+            this.lblDetalleArticulo.TabIndex = 13;
+            this.lblDetalleArticulo.Text = "Detalle del Articulo:";
+            // 
             // frmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 450);
+            this.Controls.Add(this.lblDetalleArticulo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblDetallePrecio);
             this.Controls.Add(this.lblDetalleCategoria);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.Label lblDetalleCategoria;
         private System.Windows.Forms.Label lblDetallePrecio;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblDetalleArticulo;
     }
 }

@@ -34,17 +34,27 @@ namespace presentacion
             cboCriterioArticulos.SelectedIndex = 0; 
         }
 
-        
+
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
+            Articulo artSeleccionado = null;
 
             if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
             {
-                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            }
+
+            if (artSeleccionado != null && artSeleccionado.Imagenes != null && artSeleccionado.Imagenes.Count > 0)
+            {
                 cargarImagen(artSeleccionado.Imagenes[0].urlImagen);
             }
+            else
+            {
+                cargarImagen(null); 
+            }
         }
+
 
 
         private void cargarArticulos()

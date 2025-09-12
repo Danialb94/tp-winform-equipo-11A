@@ -26,6 +26,7 @@ namespace presentacion
             InitializeComponent();
             this.articulo = articulo;
             Text = "Modificar Articulo";
+            lblAltaArticulo.Text = "Modificar Articulo";
         }
         private void btnCancelarNuevoArticulo_Click(object sender, EventArgs e)
         {
@@ -51,7 +52,10 @@ namespace presentacion
 
                 if (articulo.IdArticulo != 0)
                 {
+                    cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
+                    cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
                     negocio.modificarArticulo(articulo, urlImg);
+
                     MessageBox.Show("Modificado exitosamente");
                 }
                 else
