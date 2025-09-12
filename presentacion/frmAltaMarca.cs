@@ -14,9 +14,18 @@ namespace presentacion
 {
     public partial class frmAltaMarca : Form
     {
+        private Marca marca = null;
         public frmAltaMarca()
         {
             InitializeComponent();
+        }
+
+        public frmAltaMarca(Marca marca)
+        {
+            InitializeComponent();
+            this.marca = marca;
+            Text = "Modificar Marca";
+            btnAgregarMarca.Text = "Aceptar";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,18 +35,41 @@ namespace presentacion
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
-            Marca marca = new Marca();
             MarcaNegocio negocio = new MarcaNegocio();
             try
             {
+                if (marca == null)
+                marca = new Marca();
                 marca.Descripcion = txtDescripcionMarca.Text;
-                negocio.agregar(marca);
-                MessageBox.Show("Agregado Exitosamente");
-                this.Close();
+
+                if(marca.IdMarca != 0)
+                {
+                    negocio.modificar(marca);
+                    MessageBox.Show("Modificado Exitosamente");
+                }
+                else
+                {
+                    negocio.agregar(marca);
+                    MessageBox.Show("Agregado Exitosamente");
+                }
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                this.Close();
+            }
+        }
+
+        private void frmAltaMarca_Load(object sender, EventArgs e)
+        {
+            if (marca != null)
+            {
+                txtDescripcionMarca.Text = marca.Descripcion;
             }
         }
     }

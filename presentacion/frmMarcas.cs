@@ -29,8 +29,8 @@ namespace presentacion
         {
             MarcaNegocio Negocio = new MarcaNegocio();
             listaMarca = Negocio.listar();
-            dgvMarcas.DataSource = listaMarca;
-            dgvMarcas.Columns["IdMarca"].Visible = false;
+            dgvMarca.DataSource = listaMarca;
+            dgvMarca.Columns["IdMarca"].Visible = false;
         }
 
         public void btnAgregar_Click(object sender, EventArgs e)
@@ -38,6 +38,36 @@ namespace presentacion
             frmAltaMarca alta = new frmAltaMarca();
             alta.ShowDialog();
             cargarMarcas();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Marca seleccionado;
+            seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+            frmAltaMarca modificar = new frmAltaMarca(seleccionado);
+            modificar.ShowDialog();
+            cargarMarcas();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            Marca seleccionado;
+            try
+            {
+                seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+                DialogResult Respuesta = MessageBox.Show("Está seguro de eliminar la marca: " + seleccionado.Descripcion, "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(Respuesta == DialogResult.Yes)
+                {
+                    negocio.eliminar(seleccionado.IdMarca);
+                    cargarMarcas();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
