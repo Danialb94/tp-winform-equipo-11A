@@ -167,27 +167,6 @@ namespace presentacion
         }
 
 
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboCampoArticulo.SelectedItem != null)
@@ -252,7 +231,7 @@ namespace presentacion
             }
         }
 
-        private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             frmCategoria modificar = new frmCategoria(true,false);
             modificar.ShowDialog();

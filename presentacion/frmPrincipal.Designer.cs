@@ -31,9 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.articuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verDetalleArticuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +51,10 @@
             this.lblFiltroAvanzadoArticulos = new System.Windows.Forms.Label();
             this.txtboxFiltroAvanzadoArticulos = new System.Windows.Forms.TextBox();
             this.btnFiltroAvanzado = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
@@ -76,10 +77,7 @@
             // articuloToolStripMenuItem
             // 
             this.articuloToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarArticulosToolStripMenuItem,
-            this.modificarArticulosToolStripMenuItem,
-            this.eliminarArticuloToolStripMenuItem,
-            this.verDetalleArticuloToolStripMenuItem});
+            this.agregarArticulosToolStripMenuItem});
             this.articuloToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
             this.articuloToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
@@ -91,27 +89,6 @@
             this.agregarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.agregarArticulosToolStripMenuItem.Text = "Agregar Artículos";
             this.agregarArticulosToolStripMenuItem.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
-            // 
-            // modificarArticulosToolStripMenuItem
-            // 
-            this.modificarArticulosToolStripMenuItem.Name = "modificarArticulosToolStripMenuItem";
-            this.modificarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.modificarArticulosToolStripMenuItem.Text = "Modificar Artículos";
-            this.modificarArticulosToolStripMenuItem.Click += new System.EventHandler(this.modificarArticulosToolStripMenuItem_Click);
-            // 
-            // eliminarArticuloToolStripMenuItem
-            // 
-            this.eliminarArticuloToolStripMenuItem.Name = "eliminarArticuloToolStripMenuItem";
-            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.eliminarArticuloToolStripMenuItem.Text = "Eliminar Artículo";
-            this.eliminarArticuloToolStripMenuItem.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
-            // 
-            // verDetalleArticuloToolStripMenuItem
-            // 
-            this.verDetalleArticuloToolStripMenuItem.Name = "verDetalleArticuloToolStripMenuItem";
-            this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.verDetalleArticuloToolStripMenuItem.Text = "Ver Detalle Artículo";
-            this.verDetalleArticuloToolStripMenuItem.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
             // 
             // categoriaToolStripMenuItem
             // 
@@ -144,7 +121,6 @@
             this.modificarCategoriaToolStripMenuItem.Name = "modificarCategoriaToolStripMenuItem";
             this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.modificarCategoriaToolStripMenuItem.Text = "Modificar Categoría";
-            this.modificarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.modificarCategoriaToolStripMenuItem_Click);
             // 
             // eliminarCategoriaToolStripMenuItem
             // 
@@ -191,7 +167,7 @@
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(872, 458);
+            this.dgvArticulos.Size = new System.Drawing.Size(872, 396);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -201,14 +177,14 @@
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(23, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(308, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(307, 32);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxArticulo.Location = new System.Drawing.Point(932, 155);
+            this.pbxArticulo.Location = new System.Drawing.Point(924, 98);
             this.pbxArticulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbxArticulo.MaximumSize = new System.Drawing.Size(267, 369);
             this.pbxArticulo.MinimumSize = new System.Drawing.Size(267, 369);
@@ -224,7 +200,7 @@
             this.lblFiltroArticulos.Location = new System.Drawing.Point(25, 74);
             this.lblFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroArticulos.Name = "lblFiltroArticulos";
-            this.lblFiltroArticulos.Size = new System.Drawing.Size(88, 17);
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(84, 16);
             this.lblFiltroArticulos.TabIndex = 4;
             this.lblFiltroArticulos.Text = "Filtro Rápido";
             // 
@@ -243,7 +219,7 @@
             this.lblCampoArticulo.Location = new System.Drawing.Point(25, 607);
             this.lblCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoArticulo.Name = "lblCampoArticulo";
-            this.lblCampoArticulo.Size = new System.Drawing.Size(56, 17);
+            this.lblCampoArticulo.Size = new System.Drawing.Size(54, 16);
             this.lblCampoArticulo.TabIndex = 6;
             this.lblCampoArticulo.Text = "Campo:";
             // 
@@ -267,7 +243,6 @@
             this.cboCriterioArticulos.Name = "cboCriterioArticulos";
             this.cboCriterioArticulos.Size = new System.Drawing.Size(160, 24);
             this.cboCriterioArticulos.TabIndex = 8;
-            this.cboCriterioArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // lblCriterioArticulos
             // 
@@ -275,10 +250,9 @@
             this.lblCriterioArticulos.Location = new System.Drawing.Point(287, 607);
             this.lblCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterioArticulos.Name = "lblCriterioArticulos";
-            this.lblCriterioArticulos.Size = new System.Drawing.Size(57, 17);
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(52, 16);
             this.lblCriterioArticulos.TabIndex = 9;
             this.lblCriterioArticulos.Text = "Criterio:";
-            this.lblCriterioArticulos.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblFiltroAvanzadoArticulos
             // 
@@ -286,10 +260,9 @@
             this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(547, 607);
             this.lblFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
-            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(110, 17);
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(103, 16);
             this.lblFiltroAvanzadoArticulos.TabIndex = 10;
             this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
-            this.lblFiltroAvanzadoArticulos.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtboxFiltroAvanzadoArticulos
             // 
@@ -298,7 +271,6 @@
             this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
             this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(132, 22);
             this.txtboxFiltroAvanzadoArticulos.TabIndex = 11;
-            this.txtboxFiltroAvanzadoArticulos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnFiltroAvanzado
             // 
@@ -311,11 +283,55 @@
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
             this.btnFiltroAvanzado.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(239, 499);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(161, 37);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar un Artículo";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(573, 499);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(161, 37);
+            this.btnModificar.TabIndex = 14;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.modificarArticulosToolStripMenuItem_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(740, 499);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(161, 37);
+            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(406, 499);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(161, 37);
+            this.btnDetalle.TabIndex = 16;
+            this.btnDetalle.Text = "Ver Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 640);
+            this.Controls.Add(this.btnDetalle);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtboxFiltroAvanzadoArticulos);
             this.Controls.Add(this.lblFiltroAvanzadoArticulos);
@@ -348,9 +364,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem articuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarArticulosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarArticulosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarArticuloToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verDetalleArticuloToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeCategoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarCategoriaToolStripMenuItem;
@@ -371,6 +384,10 @@
         private System.Windows.Forms.Label lblFiltroAvanzadoArticulos;
         private System.Windows.Forms.TextBox txtboxFiltroAvanzadoArticulos;
         private System.Windows.Forms.Button btnFiltroAvanzado;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }
 

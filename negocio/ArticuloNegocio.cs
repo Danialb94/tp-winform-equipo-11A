@@ -20,7 +20,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria, I.ImagenUrl FROM ARTICULOS ART, MARCAS M, CATEGORIAS C, IMAGENES I WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id AND Art.Id = I.IdArticulo");
+                datos.setearConsulta("SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria FROM ARTICULOS ART, MARCAS M, CATEGORIAS C WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -44,36 +44,11 @@ namespace negocio
                     articulo.Precio = (decimal)datos.Lector["Precio"];
 
                     
-                    //IMAGEN
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    //IMAGENES
+                        ImagenNegocio negocio = new ImagenNegocio();
+                    if (negocio.listarXArticulo(articulo.IdArticulo) != null)
                     {
-                        try
-                        {
-                            datosIMG.setearConsulta("SELECT I.IdArticulo, I.Id, ImagenUrl FROM IMAGENES I, Articulos A WHERE I.IdArticulo = "+ articulo.IdArticulo);
-                            datosIMG.ejecutarLectura();
-                            List<Imagen> listaIMG = new List<Imagen>();
-                            while (datosIMG.Lector.Read())
-                            {
-                                Imagen img = new Imagen();
-                                img.idImagen = (int)datosIMG.Lector["Id"];
-                                img.urlImagen = (string)datosIMG.Lector["ImagenUrl"];
-
-                                listaIMG.Add(img);
-                            }
-                            articulo.Imagenes = listaIMG;
-
-                        }
-                        catch(Exception ex)
-                        {
-                            throw ex;
-                        }
-                        finally
-                        {
-                            datosIMG.cerrarConexion();
-
-                        }
-                        
-
+                        articulo.Imagenes = negocio.listarXArticulo(articulo.IdArticulo);
                     }
 
                     
@@ -168,17 +143,22 @@ namespace negocio
 
         public void eliminarArticulo(int id)
         {
+                AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
+                ImagenNegocio neg = new ImagenNegocio();
                 datos.setearConsulta("delete from ARTICULOS where id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
+                neg.eliminar(id);
             }
             catch (Exception ex)
             {
-
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
