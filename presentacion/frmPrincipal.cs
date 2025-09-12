@@ -28,6 +28,8 @@ namespace presentacion
             cboCampoArticulo.Items.Add("Código");
             cboCampoArticulo.Items.Add("Nombre");
             cboCampoArticulo.Items.Add("Descripción");
+            cboCampoArticulo.Items.Add("Marca");
+            cboCampoArticulo.Items.Add("Categoria");
             cboCampoArticulo.SelectedIndex = 0; 
 
            
@@ -192,7 +194,7 @@ namespace presentacion
             {
                 string opcion = cboCampoArticulo.SelectedItem.ToString();
 
-                if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción")
+                if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción"||opcion == "Marca" || opcion == "Categoria")
                 {
                     cboCriterioArticulos.Items.Clear();
                     cboCriterioArticulos.Items.Add("Comienza con");
