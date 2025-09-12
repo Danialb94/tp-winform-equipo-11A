@@ -68,8 +68,8 @@
             this.marcaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(910, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1213, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,35 +82,35 @@
             this.verDetalleArticuloToolStripMenuItem});
             this.articuloToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articuloToolStripMenuItem.Name = "articuloToolStripMenuItem";
-            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(85, 23);
-            this.articuloToolStripMenuItem.Text = "Articulos";
+            this.articuloToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
+            this.articuloToolStripMenuItem.Text = "Artículos";
             // 
             // agregarArticulosToolStripMenuItem
             // 
             this.agregarArticulosToolStripMenuItem.Name = "agregarArticulosToolStripMenuItem";
-            this.agregarArticulosToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.agregarArticulosToolStripMenuItem.Text = "Agregar Articulos";
+            this.agregarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.agregarArticulosToolStripMenuItem.Text = "Agregar Artículos";
             this.agregarArticulosToolStripMenuItem.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
             // 
             // modificarArticulosToolStripMenuItem
             // 
             this.modificarArticulosToolStripMenuItem.Name = "modificarArticulosToolStripMenuItem";
-            this.modificarArticulosToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.modificarArticulosToolStripMenuItem.Text = "Modificar Articulos";
+            this.modificarArticulosToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.modificarArticulosToolStripMenuItem.Text = "Modificar Artículos";
             this.modificarArticulosToolStripMenuItem.Click += new System.EventHandler(this.modificarArticulosToolStripMenuItem_Click);
             // 
             // eliminarArticuloToolStripMenuItem
             // 
             this.eliminarArticuloToolStripMenuItem.Name = "eliminarArticuloToolStripMenuItem";
-            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.eliminarArticuloToolStripMenuItem.Text = "Eliminar Articulo";
+            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.eliminarArticuloToolStripMenuItem.Text = "Eliminar Artículo";
             this.eliminarArticuloToolStripMenuItem.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
             // 
             // verDetalleArticuloToolStripMenuItem
             // 
             this.verDetalleArticuloToolStripMenuItem.Name = "verDetalleArticuloToolStripMenuItem";
-            this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.verDetalleArticuloToolStripMenuItem.Text = "Ver Detalle Articulo";
+            this.verDetalleArticuloToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.verDetalleArticuloToolStripMenuItem.Text = "Ver Detalle Artículo";
             this.verDetalleArticuloToolStripMenuItem.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
             // 
             // categoriaToolStripMenuItem
@@ -122,34 +122,34 @@
             this.eliminarCategoriaToolStripMenuItem});
             this.categoriaToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(94, 23);
-            this.categoriaToolStripMenuItem.Text = "Categorias";
+            this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(113, 25);
+            this.categoriaToolStripMenuItem.Text = "Categorías";
             // 
             // listadoDeCategoriaToolStripMenuItem
             // 
             this.listadoDeCategoriaToolStripMenuItem.Name = "listadoDeCategoriaToolStripMenuItem";
-            this.listadoDeCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.listadoDeCategoriaToolStripMenuItem.Text = "Listado de Categoria";
+            this.listadoDeCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.listadoDeCategoriaToolStripMenuItem.Text = "Listado de Categoría";
             this.listadoDeCategoriaToolStripMenuItem.Click += new System.EventHandler(this.listadoDeCategoriaToolStripMenuItem_Click);
             // 
             // agregarCategoriaToolStripMenuItem
             // 
             this.agregarCategoriaToolStripMenuItem.Name = "agregarCategoriaToolStripMenuItem";
-            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoria";
+            this.agregarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.agregarCategoriaToolStripMenuItem.Text = "Agregar Categoría";
             this.agregarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.agregarCategoriaToolStripMenuItem_Click);
             // 
             // modificarCategoriaToolStripMenuItem
             // 
             this.modificarCategoriaToolStripMenuItem.Name = "modificarCategoriaToolStripMenuItem";
-            this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.modificarCategoriaToolStripMenuItem.Text = "Modificar Categoria";
+            this.modificarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.modificarCategoriaToolStripMenuItem.Text = "Modificar Categoría";
             // 
             // eliminarCategoriaToolStripMenuItem
             // 
             this.eliminarCategoriaToolStripMenuItem.Name = "eliminarCategoriaToolStripMenuItem";
-            this.eliminarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.eliminarCategoriaToolStripMenuItem.Text = "Eliminar Categoria";
+            this.eliminarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
+            this.eliminarCategoriaToolStripMenuItem.Text = "Eliminar Categoría";
             // 
             // marcaToolStripMenuItem
             // 
@@ -158,20 +158,20 @@
             this.agregarMarcaToolStripMenuItem});
             this.marcaToolStripMenuItem.Font = new System.Drawing.Font("Bookman Old Style", 10.2F);
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
-            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.marcaToolStripMenuItem.Text = "Marcas";
             // 
             // listadoDeMarcaToolStripMenuItem
             // 
             this.listadoDeMarcaToolStripMenuItem.Name = "listadoDeMarcaToolStripMenuItem";
-            this.listadoDeMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.listadoDeMarcaToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.listadoDeMarcaToolStripMenuItem.Text = "Listado de Marcas";
             this.listadoDeMarcaToolStripMenuItem.Click += new System.EventHandler(this.listadoDeMarcaToolStripMenuItem_Click);
             // 
             // agregarMarcaToolStripMenuItem
             // 
             this.agregarMarcaToolStripMenuItem.Name = "agregarMarcaToolStripMenuItem";
-            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.agregarMarcaToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
             this.agregarMarcaToolStripMenuItem.Text = "Agregar Marca";
             this.agregarMarcaToolStripMenuItem.Click += new System.EventHandler(this.agregarMarcaToolStripMenuItem_Click);
             // 
@@ -182,14 +182,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(22, 80);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvArticulos.Location = new System.Drawing.Point(29, 98);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(654, 372);
+            this.dgvArticulos.Size = new System.Drawing.Size(872, 458);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -197,22 +197,21 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(17, 27);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(23, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(241, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(307, 32);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
             // pbxArticulo
             // 
             this.pbxArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxArticulo.Location = new System.Drawing.Point(699, 126);
-            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2);
-            this.pbxArticulo.MaximumSize = new System.Drawing.Size(200, 300);
-            this.pbxArticulo.MinimumSize = new System.Drawing.Size(200, 300);
+            this.pbxArticulo.Location = new System.Drawing.Point(932, 155);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbxArticulo.MaximumSize = new System.Drawing.Size(267, 369);
+            this.pbxArticulo.MinimumSize = new System.Drawing.Size(267, 369);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(200, 300);
+            this.pbxArticulo.Size = new System.Drawing.Size(267, 369);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxArticulo.TabIndex = 3;
             this.pbxArticulo.TabStop = false;
@@ -220,26 +219,29 @@
             // lblFiltroArticulos
             // 
             this.lblFiltroArticulos.AutoSize = true;
-            this.lblFiltroArticulos.Location = new System.Drawing.Point(19, 60);
+            this.lblFiltroArticulos.Location = new System.Drawing.Point(25, 74);
+            this.lblFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroArticulos.Name = "lblFiltroArticulos";
-            this.lblFiltroArticulos.Size = new System.Drawing.Size(66, 13);
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(84, 16);
             this.lblFiltroArticulos.TabIndex = 4;
             this.lblFiltroArticulos.Text = "Filtro Rápido";
             // 
             // txtboxFiltroArticulos
             // 
-            this.txtboxFiltroArticulos.Location = new System.Drawing.Point(102, 57);
+            this.txtboxFiltroArticulos.Location = new System.Drawing.Point(136, 70);
+            this.txtboxFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxFiltroArticulos.Name = "txtboxFiltroArticulos";
-            this.txtboxFiltroArticulos.Size = new System.Drawing.Size(209, 20);
+            this.txtboxFiltroArticulos.Size = new System.Drawing.Size(277, 22);
             this.txtboxFiltroArticulos.TabIndex = 5;
             this.txtboxFiltroArticulos.TextChanged += new System.EventHandler(this.txtboxFiltroArticulos_TextChanged);
             // 
             // lblCampoArticulo
             // 
             this.lblCampoArticulo.AutoSize = true;
-            this.lblCampoArticulo.Location = new System.Drawing.Point(19, 493);
+            this.lblCampoArticulo.Location = new System.Drawing.Point(25, 607);
+            this.lblCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoArticulo.Name = "lblCampoArticulo";
-            this.lblCampoArticulo.Size = new System.Drawing.Size(43, 13);
+            this.lblCampoArticulo.Size = new System.Drawing.Size(54, 16);
             this.lblCampoArticulo.TabIndex = 6;
             this.lblCampoArticulo.Text = "Campo:";
             // 
@@ -247,9 +249,10 @@
             // 
             this.cboCampoArticulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampoArticulo.FormattingEnabled = true;
-            this.cboCampoArticulo.Location = new System.Drawing.Point(78, 489);
+            this.cboCampoArticulo.Location = new System.Drawing.Point(104, 602);
+            this.cboCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCampoArticulo.Name = "cboCampoArticulo";
-            this.cboCampoArticulo.Size = new System.Drawing.Size(121, 21);
+            this.cboCampoArticulo.Size = new System.Drawing.Size(160, 24);
             this.cboCampoArticulo.TabIndex = 7;
             this.cboCampoArticulo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -257,18 +260,20 @@
             // 
             this.cboCriterioArticulos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterioArticulos.FormattingEnabled = true;
-            this.cboCriterioArticulos.Location = new System.Drawing.Point(273, 489);
+            this.cboCriterioArticulos.Location = new System.Drawing.Point(364, 602);
+            this.cboCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCriterioArticulos.Name = "cboCriterioArticulos";
-            this.cboCriterioArticulos.Size = new System.Drawing.Size(121, 21);
+            this.cboCriterioArticulos.Size = new System.Drawing.Size(160, 24);
             this.cboCriterioArticulos.TabIndex = 8;
             this.cboCriterioArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // lblCriterioArticulos
             // 
             this.lblCriterioArticulos.AutoSize = true;
-            this.lblCriterioArticulos.Location = new System.Drawing.Point(215, 493);
+            this.lblCriterioArticulos.Location = new System.Drawing.Point(287, 607);
+            this.lblCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterioArticulos.Name = "lblCriterioArticulos";
-            this.lblCriterioArticulos.Size = new System.Drawing.Size(42, 13);
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(52, 16);
             this.lblCriterioArticulos.TabIndex = 9;
             this.lblCriterioArticulos.Text = "Criterio:";
             this.lblCriterioArticulos.Click += new System.EventHandler(this.label2_Click);
@@ -276,26 +281,29 @@
             // lblFiltroAvanzadoArticulos
             // 
             this.lblFiltroAvanzadoArticulos.AutoSize = true;
-            this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(410, 493);
+            this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(547, 607);
+            this.lblFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
-            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(83, 13);
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(103, 16);
             this.lblFiltroAvanzadoArticulos.TabIndex = 10;
             this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
             this.lblFiltroAvanzadoArticulos.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtboxFiltroAvanzadoArticulos
             // 
-            this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(509, 489);
+            this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(679, 602);
+            this.txtboxFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
-            this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(100, 20);
+            this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(132, 22);
             this.txtboxFiltroAvanzadoArticulos.TabIndex = 11;
             this.txtboxFiltroAvanzadoArticulos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnFiltroAvanzado
             // 
-            this.btnFiltroAvanzado.Location = new System.Drawing.Point(625, 488);
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(833, 601);
+            this.btnFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
-            this.btnFiltroAvanzado.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltroAvanzado.Size = new System.Drawing.Size(100, 28);
             this.btnFiltroAvanzado.TabIndex = 12;
             this.btnFiltroAvanzado.Text = "Buscar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
@@ -303,9 +311,9 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 520);
+            this.ClientSize = new System.Drawing.Size(1213, 640);
             this.Controls.Add(this.btnFiltroAvanzado);
             this.Controls.Add(this.txtboxFiltroAvanzadoArticulos);
             this.Controls.Add(this.lblFiltroAvanzadoArticulos);
@@ -319,10 +327,10 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal Catalogo";
+            this.Text = "Menu Principal Catálogo";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

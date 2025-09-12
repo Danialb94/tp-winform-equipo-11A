@@ -18,16 +18,15 @@ namespace dominio
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
         public Marca Marca { get; set; }
+        [DisplayName("Categoría")]
         public Categoria Categoria { get; set; }
         public decimal Precio { get; set; }
 
-        public string Imagen;
-        //public List<string> Imagenes;
+        public List<Imagen> Imagenes { get; set; }
 
-       
-       
-
-
-
+        public Articulo()
+        {
+            List<Articulo> lista = new List<Articulo>();
+        }
     }
 }

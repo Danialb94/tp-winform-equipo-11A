@@ -37,6 +37,7 @@ namespace presentacion
         {
             frmAltaMarca alta = new frmAltaMarca();
             alta.ShowDialog();
+            cargarMarcas();
         }
     }
 }

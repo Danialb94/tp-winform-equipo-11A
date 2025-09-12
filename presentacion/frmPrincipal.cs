@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using dominio;
 using negocio;
 
+
 namespace presentacion
 {
     public partial class frmPrincipal : Form
@@ -41,11 +42,9 @@ namespace presentacion
             if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
             {
                 Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(artSeleccionado.Imagen);
+                cargarImagen(artSeleccionado.Imagenes[0].urlImagen);
             }
         }
-
-
 
 
         private void cargarArticulos()
@@ -54,7 +53,7 @@ namespace presentacion
             listaArticulo = Negocio.listar();
             dgvArticulos.DataSource = listaArticulo;
             ocultarColumnasArticulos();
-            cargarImagen(listaArticulo[0].Imagen);
+            cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
         }
         private void ocultarColumnasArticulos()
         {

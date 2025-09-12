@@ -16,10 +16,11 @@ namespace negocio
         {
             List<Articulo>lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datosIMG = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria FROM ARTICULOS ART, MARCAS M, CATEGORIAS C WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id;");
+                datos.setearConsulta("SELECT Art.Id,Art.Codigo,Art.Nombre,Art.Descripcion,M.Descripcion AS Marca,C.Descripcion AS Categoria, Art.Precio, Art.IdMarca, Art.IdCategoria, I.ImagenUrl FROM ARTICULOS ART, MARCAS M, CATEGORIAS C, IMAGENES I WHERE Art.IdMarca = M.Id AND Art.IdCategoria = C.Id AND Art.Id = I.IdArticulo");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -41,8 +42,40 @@ namespace negocio
                     articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["Precio"] is DBNull))
                     articulo.Precio = (decimal)datos.Lector["Precio"];
-                    //if (!(datos.Lector["ImagenUrl"] is DBNull))
-                    //articulo.Imagen = (string)datos.Lector["ImagenUrl"];
+
+                    
+                    //ACÁ
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    {
+                        try
+                        {
+                            datosIMG.setearConsulta("SELECT I.IdArticulo, I.Id, ImagenUrl FROM IMAGENES I, Articulos A WHERE I.IdArticulo = "+ articulo.IdArticulo);
+                            datosIMG.ejecutarLectura();
+                            List<Imagen> listaIMG = new List<Imagen>();
+                            while (datosIMG.Lector.Read())
+                            {
+                                Imagen img = new Imagen();
+                                img.idImagen = (int)datosIMG.Lector["Id"];
+                                img.urlImagen = (string)datosIMG.Lector["ImagenUrl"];
+
+                                listaIMG.Add(img);
+                            }
+                            articulo.Imagenes = listaIMG;
+
+                        }
+                        catch(Exception ex)
+                        {
+                            throw ex;
+                        }
+                        finally
+                        {
+                            datosIMG.cerrarConexion();
+
+                        }
+                        
+
+                    }
+
                     
 
                     lista.Add(articulo);
@@ -72,6 +105,7 @@ namespace negocio
                 datos.setearParametro("@IdMarca", nuevo.Marca.IdMarca);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.IDCategoria);
                 //datos.setearParametro("@urlImagen", nuevo.Imagen);
+                //necesitamos un imagennegocio que tome esta url y haya el insert en bd
                 datos.ejecutarAccion();
 
             }
@@ -91,6 +125,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                //FALTA AGREGAR LA MODIFICACIÓN PARA URLIMAGEN
                 datos.setearConsulta("update articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio where Id = @id");
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);

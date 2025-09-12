@@ -37,10 +37,13 @@ namespace presentacion
             // dgvCategoria
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCategoria.Location = new System.Drawing.Point(36, 106);
+            this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.RowHeadersWidth = 51;
             this.dgvCategoria.RowTemplate.Height = 24;
+            this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoria.Size = new System.Drawing.Size(307, 305);
             this.dgvCategoria.TabIndex = 0;
             // 
@@ -50,7 +53,7 @@ namespace presentacion
             this.lblTituloCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloCategoria.Location = new System.Drawing.Point(20, 32);
             this.lblTituloCategoria.Name = "lblTituloCategoria";
-            this.lblTituloCategoria.Size = new System.Drawing.Size(313, 32);
+            this.lblTituloCategoria.Size = new System.Drawing.Size(312, 32);
             this.lblTituloCategoria.TabIndex = 1;
             this.lblTituloCategoria.Text = "Listado de Categorias";
             // 
