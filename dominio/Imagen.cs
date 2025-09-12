@@ -10,6 +10,7 @@ namespace dominio
     public class Imagen
     {
         public int idImagen { get; set; }
+        public int idArticulo { get; set; }
         public string urlImagen { get; set; }
 
         /*

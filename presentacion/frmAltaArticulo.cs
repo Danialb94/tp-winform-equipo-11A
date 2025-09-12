@@ -47,16 +47,16 @@ namespace presentacion
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cmbCategoriaArticulo.SelectedItem;
                 articulo.Precio = decimal.Parse(txtboxPrecioArticulo.Text);
-                // articulo.Imagen = txtboxUrlImagenArticulo.Text;
+                string urlImg = txtboxUrlImagenArticulo.Text;
 
                 if (articulo.IdArticulo != 0)
                 {
-                    negocio.modificarArticulo(articulo);
+                    negocio.modificarArticulo(articulo, urlImg);
                     MessageBox.Show("Modificado exitosamente");
                 }
                 else
                 {
-                    negocio.agregar(articulo);
+                    negocio.agregar(articulo, urlImg);
                     MessageBox.Show("Articulo agregado exitosamente");
                 }
 

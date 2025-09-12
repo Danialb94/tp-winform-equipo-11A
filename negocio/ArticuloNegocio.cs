@@ -44,7 +44,7 @@ namespace negocio
                     articulo.Precio = (decimal)datos.Lector["Precio"];
 
                     
-                    //ACÁ
+                    //IMAGEN
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                     {
                         try
@@ -96,31 +96,42 @@ namespace negocio
        
         }
 
-        public void agregar(Articulo nuevo)
+        public void agregar(Articulo nuevo, string URL)
         {   
             AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datosIMG = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('"+nuevo.Codigo+"','"+nuevo.Nombre+"','"+nuevo.Descripcion+"',"+nuevo.Precio+",@IdMarca, @IdCategoria)");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ",@IdMarca, @IdCategoria)");
                 datos.setearParametro("@IdMarca", nuevo.Marca.IdMarca);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.IDCategoria);
-                //datos.setearParametro("@urlImagen", nuevo.Imagen);
-                //necesitamos un imagennegocio que tome esta url y haya el insert en bd
                 datos.ejecutarAccion();
 
-            }
-            catch (Exception)
-            {
+                //Toma el último registro ingresado y lo agrega a la base de datos de Imagenes
+                datosIMG.setearConsulta("SELECT TOP 1 Id FROM ARTICULOS ORDER BY Id Desc");
+                datosIMG.ejecutarLectura();
+                datosIMG.Lector.Read();
+                Imagen imagen = new Imagen();
+                imagen.urlImagen = URL;
+                imagen.idArticulo = (int)datosIMG.Lector["Id"];
+                ImagenNegocio negocio = new ImagenNegocio();
+                negocio.agregar(imagen);
 
-                throw;
+                //datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             finally
             {
                 datos.cerrarConexion();
+                datosIMG.cerrarConexion();
             }
         }
 
-        public void modificarArticulo(Articulo articulo)
+        public void modificarArticulo(Articulo articulo, string imagen)
         {   
             AccesoDatos datos = new AccesoDatos();
             try
