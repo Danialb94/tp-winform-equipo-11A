@@ -35,10 +35,10 @@ namespace negocio
                     articulo.Descripcion = (string)datos.Lector["Descripcion"];
                     articulo.Marca = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
-                    articulo.Marca.IdMarca = (int)datos.Lector["Id"];
+                    articulo.Marca.IdMarca = (int)datos.Lector["IdMarca"];
                     articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
                     articulo.Categoria = new Categoria();
-                    articulo.Categoria.IDCategoria = (int)datos.Lector["Id"];
+                    articulo.Categoria.IDCategoria = (int)datos.Lector["IdCategoria"];
                     if (!(datos.Lector["Categoria"] is DBNull))
                     articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["Precio"] is DBNull))

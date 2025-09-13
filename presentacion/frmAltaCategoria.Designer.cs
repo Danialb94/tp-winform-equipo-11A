@@ -40,11 +40,12 @@ namespace presentacion
             // 
             this.lblAgregarCategoria.AutoSize = true;
             this.lblAgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarCategoria.Location = new System.Drawing.Point(31, 30);
+            this.lblAgregarCategoria.Location = new System.Drawing.Point(92, 34);
             this.lblAgregarCategoria.Name = "lblAgregarCategoria";
             this.lblAgregarCategoria.Size = new System.Drawing.Size(300, 38);
             this.lblAgregarCategoria.TabIndex = 0;
             this.lblAgregarCategoria.Text = "Agregar Categoria";
+            this.lblAgregarCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDescripcionCategoria
             // 
@@ -52,7 +53,7 @@ namespace presentacion
             this.lblDescripcionCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionCategoria.Location = new System.Drawing.Point(34, 134);
             this.lblDescripcionCategoria.Name = "lblDescripcionCategoria";
-            this.lblDescripcionCategoria.Size = new System.Drawing.Size(133, 24);
+            this.lblDescripcionCategoria.Size = new System.Drawing.Size(127, 22);
             this.lblDescripcionCategoria.TabIndex = 1;
             this.lblDescripcionCategoria.Text = "Descripcion: ";
             // 
@@ -80,7 +81,7 @@ namespace presentacion
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(219, 228);
+            this.btnCancelar.Location = new System.Drawing.Point(320, 228);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(124, 36);
             this.btnCancelar.TabIndex = 4;
@@ -92,7 +93,7 @@ namespace presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 305);
+            this.ClientSize = new System.Drawing.Size(473, 305);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtDescripcionCategoria);
@@ -100,7 +101,7 @@ namespace presentacion
             this.Controls.Add(this.lblAgregarCategoria);
             this.Name = "frmAltaCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAltaCategoria";
+            this.Text = "Nueva Categoría";
             this.ResumeLayout(false);
             this.PerformLayout();
 

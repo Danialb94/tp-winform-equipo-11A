@@ -30,6 +30,8 @@ namespace presentacion
             this.articulo = articulo;
             Text = "Modificar Articulo";
             lblAltaArticulo.Text = "Modificar Articulo";
+            btnAceptarNuevoArticulo.Text = "Guardar";
+            btnAgregarImg.Text = "Modificar Imagen";
         }
 
         private void btnCancelarNuevoArticulo_Click(object sender, EventArgs e)
@@ -117,8 +119,6 @@ namespace presentacion
                         }
                     }
                     lblImgAgregadas.Visible = false;
-                    btnAceptarNuevoArticulo.Text = "Guardar";
-                    btnAgregarImg.Text = "Modificar Imagen";
 
                     txtboxCodigoArticulo.Text = articulo.Codigo;
                     txtboxNombreArticulo.Text = articulo.Nombre;
@@ -206,8 +206,17 @@ namespace presentacion
                 }
                 else
                 {
-                    articulo.Imagenes[imagenAux].urlImagen = txtboxUrlImagenArticulo.Text;
-                    cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                    if (txtboxUrlImagenArticulo.Text == articulo.Imagenes[imagenAux].urlImagen)
+                    {
+                        MessageBox.Show("Seleccione una imagen distinta a la actual para generar la modificación.");
+                    }
+                    else
+                    {
+                        articulo.Imagenes[imagenAux].urlImagen = txtboxUrlImagenArticulo.Text;
+                        cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                        MessageBox.Show("Se modificó la imagen, recuerde guardar los cambios.");
+
+                    }
                 }
 
             }

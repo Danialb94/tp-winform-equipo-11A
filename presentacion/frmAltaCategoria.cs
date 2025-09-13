@@ -26,6 +26,7 @@ namespace presentacion
             this.categoria = categoria;
             Text = "Modificar Categoria";
             btnAgregar.Text = "Aceptar";
+            lblAgregarCategoria.Text = "Modificar Categoría";
         }
 
 
