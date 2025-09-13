@@ -97,9 +97,11 @@ namespace presentacion
                     txtboxNombreArticulo.Text = articulo.Nombre;
                     txtboxDescripcionArticulo.Text = articulo.Descripcion;
                     txtboxPrecioArticulo.Text = articulo.Precio.ToString();
-                    // txtboxUrlImagenArticulo.Text = articulo.Imagen;
-                    //cargarImagen(articulo.Imagen);
-                    cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
+                    //txtboxUrlImagenArticulo.Text = articulo.Imagen;
+                    if (articulo.Imagenes != null)
+                        cargarImagen(articulo.Imagenes[0].urlImagen);
+                    else cargarImagen(null);
+                        cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
 
                 }

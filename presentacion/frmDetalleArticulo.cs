@@ -23,11 +23,24 @@ namespace presentacion
           txtboxDetalleMarca.Text = articulo.Marca.Descripcion;
           txtboxDetalleCategoria.Text = articulo.Categoria.Descripcion;
           txtboxDetallePrecio.Text = articulo.Precio.ToString();
+          if (articulo.Imagenes != null)
+                cargarImagen(articulo.Imagenes[0].urlImagen);
+          else cargarImagen(null);
 
-           
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pboImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pboImagen.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+            }
         }
 
-        
+
     }
 
 }

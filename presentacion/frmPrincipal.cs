@@ -36,8 +36,6 @@ namespace presentacion
             cboCriterioArticulos.SelectedIndex = 0; 
         }
 
-
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo artSeleccionado = null;
@@ -56,8 +54,6 @@ namespace presentacion
                 cargarImagen(null); 
             }
         }
-
-
 
         private void cargarArticulos()
         {
@@ -127,6 +123,7 @@ namespace presentacion
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
         }
+
         private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAltaMarca alta = new frmAltaMarca();
@@ -166,7 +163,6 @@ namespace presentacion
             ocultarColumnasArticulos();
         }
 
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboCampoArticulo.SelectedItem != null)
@@ -182,7 +178,6 @@ namespace presentacion
                 }
             }
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
