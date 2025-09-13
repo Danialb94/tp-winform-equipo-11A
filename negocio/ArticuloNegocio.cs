@@ -269,7 +269,11 @@ namespace negocio
                         articulo.Precio = (decimal)datos.Lector["Precio"];
                     //if (!(datos.Lector["ImagenUrl"] is DBNull))
                     //articulo.Imagen = (string)datos.Lector["ImagenUrl"];
-
+                    ImagenNegocio negocio = new ImagenNegocio();
+                    if (negocio.listarXArticulo(articulo.IdArticulo) != null)
+                    {
+                        articulo.Imagenes = negocio.listarXArticulo(articulo.IdArticulo);
+                    }
 
                     lista.Add(articulo);
                 }
