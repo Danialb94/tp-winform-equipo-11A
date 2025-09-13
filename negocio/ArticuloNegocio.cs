@@ -72,27 +72,23 @@ namespace negocio
         }
 
         public void agregar(Articulo nuevo, string URL)
-        {   
+        {
             AccesoDatos datos = new AccesoDatos();
             AccesoDatos datosIMG = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ",@IdMarca, @IdCategoria)");
+                datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ",@IdMarca, @IdCategoria) SELECT SCOPE_IDENTITY() AS[IdArticulo]");
                 datos.setearParametro("@IdMarca", nuevo.Marca.IdMarca);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.IDCategoria);
-                datos.ejecutarAccion();
 
-                //Toma el último registro ingresado y lo agrega a la base de datos de Imagenes
-                datosIMG.setearConsulta("SELECT TOP 1 Id FROM ARTICULOS ORDER BY Id Desc");
-                datosIMG.ejecutarLectura();
-                datosIMG.Lector.Read();
+                datos.ejecutarLectura();
+                datos.Lector.Read();
                 Imagen imagen = new Imagen();
                 imagen.urlImagen = URL;
-                imagen.idArticulo = (int)datosIMG.Lector["Id"];
+                imagen.idArticulo = Convert.ToInt32(datos.Lector["IdArticulo"]);
                 ImagenNegocio negocio = new ImagenNegocio();
                 negocio.agregar(imagen);
 
-                //datos.ejecutarAccion();
 
             }
             catch (Exception ex)
