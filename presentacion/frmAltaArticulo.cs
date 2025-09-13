@@ -20,6 +20,7 @@ namespace presentacion
         public frmAltaArticulo()
         {
             InitializeComponent();
+            
         }
 
         public frmAltaArticulo(Articulo articulo)
@@ -38,7 +39,8 @@ namespace presentacion
         private void btnAceptarNuevoArticulo_Click(object sender, EventArgs e)
         {   
             ArticuloNegocio negocio = new ArticuloNegocio();
-          
+            btnAceptarNuevoArticulo.Enabled = false;
+
             try
             {
                 if (articulo == null)
@@ -62,6 +64,7 @@ namespace presentacion
                 }
                 else
                 {
+                    
                     negocio.agregar(articulo, urlImg);
                     MessageBox.Show("Articulo agregado exitosamente");
                 }
@@ -100,14 +103,14 @@ namespace presentacion
                     txtboxNombreArticulo.Text = articulo.Nombre;
                     txtboxDescripcionArticulo.Text = articulo.Descripcion;
                     txtboxPrecioArticulo.Text = articulo.Precio.ToString();
-                    //txtboxUrlImagenArticulo.Text = articulo.Imagen;
                     if (articulo.Imagenes != null)
                         cargarImagen(articulo.Imagenes[0].urlImagen);
                     else cargarImagen(null);
-                        cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
+                    cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
 
                 }
+                validarCampos();
             }
             catch (Exception ex)
             {
@@ -117,6 +120,32 @@ namespace presentacion
 
 
         }
+        private void validarCampos()
+        {
+            bool codigoOk = !string.IsNullOrWhiteSpace(txtboxCodigoArticulo.Text);
+            bool nombreOk = !string.IsNullOrWhiteSpace(txtboxNombreArticulo.Text);
+            bool precioOk = false;
+
+            try
+            {
+                decimal precio = Convert.ToDecimal(txtboxPrecioArticulo.Text);
+                if (precio > 0)
+                    precioOk = true;
+            }
+            catch
+            {
+                precioOk = false;
+            }
+
+            btnAceptarNuevoArticulo.Enabled = codigoOk && nombreOk && precioOk;
+        }
+
+        private void txtBox_TextChanged(object sender, EventArgs e)
+        {
+            validarCampos();
+        }
+
+
 
         private void txtboxUrlImagenArticulo_Leave(object sender, EventArgs e)
         {
@@ -135,5 +164,6 @@ namespace presentacion
             }
         }
 
+      
     }
 }

@@ -30,6 +30,7 @@ namespace presentacion
             cboCampoArticulo.Items.Add("Descripción");
             cboCampoArticulo.Items.Add("Marca");
             cboCampoArticulo.Items.Add("Categoria");
+            cboCampoArticulo.Items.Add("Precio");
             cboCampoArticulo.SelectedIndex = 0; 
 
            
@@ -188,7 +189,15 @@ namespace presentacion
                     cboCriterioArticulos.Items.Add("Termina con");
                     cboCriterioArticulos.Items.Add("Contiene");
                 }
+                else if (opcion == "Precio")
+                {
+                    cboCriterioArticulos.Items.Clear();
+                    cboCriterioArticulos.Items.Add("Mayor a");
+                    cboCriterioArticulos.Items.Add("Menor a");
+                    cboCriterioArticulos.Items.Add("Igual a");
+                }
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -197,17 +206,11 @@ namespace presentacion
 
             try
             {
-                if (cboCampoArticulo.SelectedItem == null)
+                if (validarFiltro())
                 {
-                    MessageBox.Show("Seleccione un campo para filtrar.");
                     return;
                 }
-
-                if (cboCriterioArticulos.SelectedItem == null)
-                {
-                    MessageBox.Show("Seleccione un criterio para filtrar.");
-                    return;
-                }
+                
 
                 string campo = cboCampoArticulo.SelectedItem.ToString();
                 string criterio = cboCriterioArticulos.SelectedItem.ToString();
@@ -238,6 +241,31 @@ namespace presentacion
             }
         }
 
+        private bool validarFiltro()
+        {
+            if(cboCampoArticulo.SelectedItem.ToString()=="Precio")
+                if (string.IsNullOrEmpty(txtboxFiltroAvanzadoArticulos.Text))
+                {
+                    return true;
+                }
+               if(!(soloNumeros(txtboxFiltroAvanzadoArticulos.Text)))
+                {
+                    MessageBox.Show("Solo se aceptan números");
+                return true;
+                }
+
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if(!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
         private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria modificar = new frmCategoria(true,false);
@@ -249,6 +277,7 @@ namespace presentacion
             frmCategoria eliminar = new frmCategoria(false, true);
             eliminar.ShowDialog();
         }
+
     }
 }
 
