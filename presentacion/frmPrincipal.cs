@@ -90,10 +90,17 @@ namespace presentacion
         private void modificarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Articulo articuloSeleccionado;
-            articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmAltaArticulo modificar = new frmAltaArticulo(articuloSeleccionado);
-            modificar.ShowDialog();
-            cargarArticulos();
+            if (dgvArticulos.CurrentRow !=null ) {
+                articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmAltaArticulo modificar = new frmAltaArticulo(articuloSeleccionado);
+                modificar.ShowDialog();
+                cargarArticulos();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un artículo primero.");
+            }
+
         }
 
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,14 +109,19 @@ namespace presentacion
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
-                {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    negocio.eliminarArticulo(seleccionado.IdArticulo);
-                    cargarArticulos();
+                if (dgvArticulos.CurrentRow != null) {
+                    DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.eliminarArticulo(seleccionado.IdArticulo);
+                        cargarArticulos();
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un artículo primero.");
+                }
             }
             catch (Exception ex)
             {
