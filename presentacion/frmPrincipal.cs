@@ -259,6 +259,16 @@ namespace presentacion
 
         private bool validarFiltro()
         {
+            if (cboCampoArticulo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+            if (cboCriterioArticulos.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
+                return true;
+            }
             string campoSeleccionado = cboCampoArticulo.SelectedItem.ToString();
 
             if (campoSeleccionado == "Precio")
