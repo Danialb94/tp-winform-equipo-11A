@@ -226,7 +226,7 @@ namespace presentacion
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria modificar = new frmCategoria(true,false);
             modificar.ShowDialog();

@@ -16,6 +16,7 @@ namespace presentacion
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private List<Imagen> imagenes;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace presentacion
             Text = "Modificar Articulo";
             lblAltaArticulo.Text = "Modificar Articulo";
         }
+
         private void btnCancelarNuevoArticulo_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -93,6 +95,7 @@ namespace presentacion
 
                 if (articulo != null)
                 {
+                    btnAgregarImg.Visible = false;
                     txtboxCodigoArticulo.Text = articulo.Codigo;
                     txtboxNombreArticulo.Text = articulo.Nombre;
                     txtboxDescripcionArticulo.Text = articulo.Descripcion;
@@ -132,6 +135,5 @@ namespace presentacion
             }
         }
 
-        
     }
 }
