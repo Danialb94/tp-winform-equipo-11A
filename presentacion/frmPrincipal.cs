@@ -259,19 +259,26 @@ namespace presentacion
 
         private bool validarFiltro()
         {
-            if (cboCampoArticulo.SelectedItem.ToString() == "Precio")
+            string campoSeleccionado = cboCampoArticulo.SelectedItem.ToString();
+
+            if (campoSeleccionado == "Precio")
+            {
                 if (string.IsNullOrEmpty(txtboxFiltroAvanzadoArticulos.Text))
                 {
+                    MessageBox.Show("Por favor ingrese un valor para filtrar.");
                     return true;
                 }
-            if (!(soloNumeros(txtboxFiltroAvanzadoArticulos.Text)))
-            {
-                MessageBox.Show("Solo se aceptan números");
-                return true;
+
+                if (!soloNumeros(txtboxFiltroAvanzadoArticulos.Text))
+                {
+                    MessageBox.Show("Solo se aceptan números para el precio.");
+                    return true;
+                }
             }
 
             return false;
         }
+
 
         private bool soloNumeros(string cadena)
         {
