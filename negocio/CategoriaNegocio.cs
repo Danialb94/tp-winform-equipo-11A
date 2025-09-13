@@ -83,6 +83,31 @@ namespace negocio
             }
         }
 
+        public bool tieneArticulosAsociados(int idCategoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM Articulos WHERE IdCategoria = @Id");
+                datos.setearParametro("@Id", idCategoria);
+                datos.ejecutarLectura();
+
+                int cantidad = 0;
+                if (datos.Lector.Read())
+                    cantidad = (int)datos.Lector[0];
+
+                return cantidad > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void eliminar(int id)
         {
             AccesoDatos datos = new AccesoDatos();

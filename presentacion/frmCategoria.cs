@@ -94,25 +94,39 @@ namespace presentacion
             if (dgvCategoria.CurrentRow != null)
             {
                 Categoria seleccionado = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+                CategoriaNegocio negocio = new CategoriaNegocio();
+
+                if (negocio.tieneArticulosAsociados(seleccionado.IDCategoria))
+                {
+                    MessageBox.Show("No se puede eliminar la categoría porque tiene artículos asociados.");
+                    return;
+                }
+
                 DialogResult respuesta = MessageBox.Show(
-                    "¿ Está seguro de eliminar la categoria: " + seleccionado.Descripcion + " ? ",
-                    "Eliminar Categoria",
+                    "¿Está seguro de eliminar la categoría: " + seleccionado.Descripcion + "?",
+                    "Eliminar Categoría",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
+
                 if (respuesta == DialogResult.Yes)
                 {
                     try
                     {
-                        CategoriaNegocio negocio = new CategoriaNegocio();
                         negocio.eliminar(seleccionado.IDCategoria);
                         cargarCategoria();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error al Eliminar: " + ex.Message);
+                        MessageBox.Show("Error al eliminar: " + ex.Message);
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Por favor seleccione una categoría primero.");
+            }
         }
+
     }
 }
+

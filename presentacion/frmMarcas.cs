@@ -51,23 +51,44 @@ namespace presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MarcaNegocio negocio = new MarcaNegocio();
-            Marca seleccionado;
             try
             {
-                seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
-                DialogResult Respuesta = MessageBox.Show("Está seguro de eliminar la marca: " + seleccionado.Descripcion, "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(Respuesta == DialogResult.Yes)
+                if (dgvMarca.CurrentRow != null)
                 {
-                    negocio.eliminar(seleccionado.IdMarca);
-                    cargarMarcas();
-                }
+                    Marca seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+                    MarcaNegocio negocio = new MarcaNegocio();
+
+                    
+                    if (negocio.tieneArticulosAsociados(seleccionado.IdMarca))
+                    {
+                        MessageBox.Show("No se puede eliminar la marca porque tiene artículos asociados.");
+                        return;
+                    }
+
                 
+                    DialogResult respuesta = MessageBox.Show(
+                        "¿Está seguro de eliminar la marca: " + seleccionado.Descripcion + "?",
+                        "Eliminando",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        negocio.eliminar(seleccionado.IdMarca);
+                        cargarMarcas(); 
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una marca para eliminar.");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
+
     }
 }
