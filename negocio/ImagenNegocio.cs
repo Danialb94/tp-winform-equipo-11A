@@ -7,7 +7,7 @@ using dominio;
 
 namespace negocio
 {
-    internal class ImagenNegocio
+    public class ImagenNegocio
     {
         public List<Imagen> listarXArticulo(int idArticulo)
         {
@@ -16,7 +16,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("SELECT I.Id, I.IdArticulo, I.ImagenUrl FROM IMAGENES I WHERE I.IdArticulo = @idArticulo");
+                datos.setearConsulta("SELECT I.Id, I.IdArticulo, I.ImagenUrl FROM IMAGENES I WHERE I.IdArticulo = @idArticulo ORDER BY Id ASC");
                 datos.setearParametro("@idArticulo", idArticulo);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -70,7 +70,7 @@ namespace negocio
             try
             {
                 datos.setearConsulta("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE Id = @id");
-                datos.setearParametro("@descripcion", modificar.urlImagen);
+                datos.setearParametro("@ImagenUrl", modificar.urlImagen);
                 datos.setearParametro("@id", modificar.idImagen);
                 datos.ejecutarAccion();
             }
@@ -84,7 +84,7 @@ namespace negocio
             }
         }
 
-        public void eliminar(int idArt)
+        public void eliminarXArticulo(int idArt)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -103,5 +103,26 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public void eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("DELETE IMAGENES WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
 }

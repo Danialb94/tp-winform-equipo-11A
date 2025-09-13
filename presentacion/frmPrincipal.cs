@@ -16,6 +16,7 @@ namespace presentacion
     public partial class frmPrincipal : Form
     {
         private List<Articulo> listaArticulo;
+        private int imagenAux;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -24,22 +25,24 @@ namespace presentacion
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarArticulos();
-        
+
             cboCampoArticulo.Items.Add("Código");
             cboCampoArticulo.Items.Add("Nombre");
             cboCampoArticulo.Items.Add("Descripción");
             cboCampoArticulo.Items.Add("Marca");
             cboCampoArticulo.Items.Add("Categoria");
             cboCampoArticulo.Items.Add("Precio");
-            cboCampoArticulo.SelectedIndex = 0; 
+            cboCampoArticulo.SelectedIndex = 0;
 
-           
-            cboCriterioArticulos.SelectedIndex = 0; 
+
+            cboCriterioArticulos.SelectedIndex = 0;
+            btnNavegarAtras.Visible = false;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo artSeleccionado = null;
+            imagenAux = 0;
 
             if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
             {
@@ -49,13 +52,24 @@ namespace presentacion
             if (artSeleccionado != null && artSeleccionado.Imagenes != null && artSeleccionado.Imagenes.Count > 0)
             {
                 cargarImagen(artSeleccionado.Imagenes[0].urlImagen);
+                if (artSeleccionado.Imagenes.Count > 1)
+                {
+                    gbxNavegadorImg.Visible = true;
+                    btnNavegarAtras.Visible = false;
+                    btnNavegarAdelante.Visible = true;
+                }
+                else
+                {
+                    gbxNavegadorImg.Visible = false;
+                }
             }
             else
             {
-                cargarImagen(null); 
+                cargarImagen(null);
             }
-        }
 
+
+        }
         private void cargarArticulos()
         {
             ArticuloNegocio Negocio = new ArticuloNegocio();
@@ -68,7 +82,6 @@ namespace presentacion
         {
             dgvArticulos.Columns["IdArticulo"].Visible = false;
         }
-
         private void cargarImagen(string imagen)
         {
             try
@@ -91,7 +104,8 @@ namespace presentacion
         private void modificarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Articulo articuloSeleccionado;
-            if (dgvArticulos.CurrentRow !=null ) {
+            if (dgvArticulos.CurrentRow != null)
+            {
                 articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmAltaArticulo modificar = new frmAltaArticulo(articuloSeleccionado);
                 modificar.ShowDialog();
@@ -110,7 +124,8 @@ namespace presentacion
             Articulo seleccionado;
             try
             {
-                if (dgvArticulos.CurrentRow != null) {
+                if (dgvArticulos.CurrentRow != null)
+                {
                     DialogResult respuesta = MessageBox.Show("¿Está seguro de que quiere eliminar?", "Eliminar Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
@@ -161,7 +176,7 @@ namespace presentacion
 
         private void txtboxFiltroArticulos_TextChanged(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada;
+            List<Articulo> listaFiltrada, listaFinal;
             string filtro = txtboxFiltroArticulos.Text;
             if (filtro.Length >= 2)
             {
@@ -171,6 +186,7 @@ namespace presentacion
             {
                 listaFiltrada = listaArticulo;
             }
+            
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
             ocultarColumnasArticulos();
@@ -182,7 +198,7 @@ namespace presentacion
             {
                 string opcion = cboCampoArticulo.SelectedItem.ToString();
 
-                if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción"||opcion == "Marca" || opcion == "Categoria")
+                if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción" || opcion == "Marca" || opcion == "Categoria")
                 {
                     cboCriterioArticulos.Items.Clear();
                     cboCriterioArticulos.Items.Add("Comienza con");
@@ -197,7 +213,7 @@ namespace presentacion
                     cboCriterioArticulos.Items.Add("Igual a");
                 }
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -210,7 +226,7 @@ namespace presentacion
                 {
                     return;
                 }
-                
+
 
                 string campo = cboCampoArticulo.SelectedItem.ToString();
                 string criterio = cboCriterioArticulos.SelectedItem.ToString();
@@ -227,7 +243,7 @@ namespace presentacion
 
         private void verDetalleArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -243,16 +259,16 @@ namespace presentacion
 
         private bool validarFiltro()
         {
-            if(cboCampoArticulo.SelectedItem.ToString()=="Precio")
+            if (cboCampoArticulo.SelectedItem.ToString() == "Precio")
                 if (string.IsNullOrEmpty(txtboxFiltroAvanzadoArticulos.Text))
                 {
                     return true;
                 }
-               if(!(soloNumeros(txtboxFiltroAvanzadoArticulos.Text)))
-                {
-                    MessageBox.Show("Solo se aceptan números");
+            if (!(soloNumeros(txtboxFiltroAvanzadoArticulos.Text)))
+            {
+                MessageBox.Show("Solo se aceptan números");
                 return true;
-                }
+            }
 
             return false;
         }
@@ -261,14 +277,14 @@ namespace presentacion
         {
             foreach (char caracter in cadena)
             {
-                if(!(char.IsNumber(caracter)))
+                if (!(char.IsNumber(caracter)))
                     return false;
             }
             return true;
         }
         private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategoria modificar = new frmCategoria(true,false);
+            frmCategoria modificar = new frmCategoria(true, false);
             modificar.ShowDialog();
         }
 
@@ -278,6 +294,126 @@ namespace presentacion
             eliminar.ShowDialog();
         }
 
+
+
+        //IMAGENES
+        private void btnNavegarAdelante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un artículo para continuar");
+                    return;
+                }
+                Articulo artActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                imagenAux++;
+                cargarImagen(artActual.Imagenes[imagenAux].urlImagen);
+                btnNavegarAtras.Visible = true;
+                if (artActual.Imagenes.Count - 1 == imagenAux) btnNavegarAdelante.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnNavegarAtras_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un artículo para continuar");
+                    return;
+                }
+                Articulo artActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                imagenAux--;
+                cargarImagen(artActual.Imagenes[imagenAux].urlImagen);
+                btnNavegarAdelante.Visible = true;
+                if (0 == imagenAux) btnNavegarAtras.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un artículo para continuar");
+                    return;
+                }
+                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmAltaImagenes agregar = new frmAltaImagenes(artSeleccionado, -1);
+                agregar.ShowDialog();
+                cargarArticulos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void btnModificarImg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un artículo para continuar");
+                    return;
+                }
+                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmAltaImagenes agregar = new frmAltaImagenes(artSeleccionado, imagenAux);
+                agregar.ShowDialog();
+                cargarArticulos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnEliminarImg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccione un artículo para continuar");
+                    return;
+                }
+                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                DialogResult respuesta = MessageBox.Show(
+                        "¿ Está seguro de eliminar la imagen esta imagen del artículo: " + artSeleccionado.Codigo + "/" + artSeleccionado.Nombre + " ? ",
+                        "Eliminar Imagen",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ImagenNegocio negocio = new ImagenNegocio();
+                        negocio.eliminar(artSeleccionado.Imagenes[imagenAux].idImagen);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al Eliminar: " + ex.Message);
+                    }
+                }
+                cargarArticulos();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 

@@ -16,7 +16,7 @@ namespace presentacion
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
-        private List<Imagen> imagenes;
+        private List<Imagen> listaImagenes;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -52,20 +52,20 @@ namespace presentacion
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cmbCategoriaArticulo.SelectedItem;
                 articulo.Precio = decimal.Parse(txtboxPrecioArticulo.Text);
-                string urlImg = txtboxUrlImagenArticulo.Text;
+                //string urlImg = txtboxUrlImagenArticulo.Text;
 
                 if (articulo.IdArticulo != 0)
                 {
                     cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
-                    negocio.modificarArticulo(articulo, urlImg);
+                    negocio.modificarArticulo(articulo, listaImagenes);
 
                     MessageBox.Show("Modificado exitosamente");
                 }
                 else
                 {
                     
-                    negocio.agregar(articulo, urlImg);
+                    negocio.agregar(articulo, listaImagenes);
                     MessageBox.Show("Articulo agregado exitosamente");
                 }
 
@@ -82,8 +82,8 @@ namespace presentacion
 
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
+            listaImagenes = new List<Imagen>();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-
             CategoriaNegocio categoriaNeg = new CategoriaNegocio();
 
 
@@ -145,8 +145,6 @@ namespace presentacion
             validarCampos();
         }
 
-
-
         private void txtboxUrlImagenArticulo_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtboxUrlImagenArticulo.Text);
@@ -164,6 +162,21 @@ namespace presentacion
             }
         }
 
-      
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            if(txtboxUrlImagenArticulo.Text == "")
+            {
+                MessageBox.Show("Por favor, complete el campo antes de intentar agregar una imagen.");
+            }
+            else
+            {
+                Imagen img = new Imagen();
+                img.urlImagen = txtboxUrlImagenArticulo.Text;
+                listaImagenes.Add(img);
+                lblImgAgregadas.Text = "Imagenes cargadas: " + listaImagenes.Count;
+                txtboxUrlImagenArticulo.Text = "";
+
+            }
+        }
     }
 }

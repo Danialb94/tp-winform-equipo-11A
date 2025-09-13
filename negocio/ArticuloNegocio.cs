@@ -71,7 +71,7 @@ namespace negocio
        
         }
 
-        public void agregar(Articulo nuevo, string URL)
+        public void agregar(Articulo nuevo, List<Imagen> listaImg)
         {
             AccesoDatos datos = new AccesoDatos();
             AccesoDatos datosIMG = new AccesoDatos();
@@ -82,12 +82,19 @@ namespace negocio
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.IDCategoria);
 
                 datos.ejecutarLectura();
-                datos.Lector.Read();
-                Imagen imagen = new Imagen();
-                imagen.urlImagen = URL;
-                imagen.idArticulo = Convert.ToInt32(datos.Lector["IdArticulo"]);
-                ImagenNegocio negocio = new ImagenNegocio();
-                negocio.agregar(imagen);
+                if (listaImg.Count != 0)
+                {
+                    datos.Lector.Read();
+                    for (int x=0; x < listaImg.Count; x++)
+                    {
+                        Imagen imagen = new Imagen();
+                        imagen.urlImagen = listaImg[x].urlImagen;
+                        imagen.idArticulo = Convert.ToInt32(datos.Lector["IdArticulo"]);
+                        ImagenNegocio negocio = new ImagenNegocio();
+                        negocio.agregar(imagen);
+                    }
+
+                }
 
 
             }
@@ -102,7 +109,7 @@ namespace negocio
             }
         }
 
-        public void modificarArticulo(Articulo articulo, string imagen)
+        public void modificarArticulo(Articulo articulo, List<Imagen> listaImg)
         {   
             AccesoDatos datos = new AccesoDatos();
             try
@@ -118,9 +125,6 @@ namespace negocio
                 datos.setearParametro("@id", articulo.IdArticulo);
 
                 datos.ejecutarAccion();
-
-
-
 
 
             }
@@ -146,7 +150,7 @@ namespace negocio
                 datos.setearConsulta("delete from ARTICULOS where id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
-                neg.eliminar(id);
+                neg.eliminarXArticulo(id);
             }
             catch (Exception ex)
             {
