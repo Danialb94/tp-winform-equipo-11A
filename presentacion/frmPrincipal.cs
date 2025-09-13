@@ -93,7 +93,6 @@ namespace presentacion
                 pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
         }
-
         private void agregarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAltaArticulo alta = new frmAltaArticulo();
@@ -117,7 +116,7 @@ namespace presentacion
             }
 
         }
-
+        
         private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -176,7 +175,7 @@ namespace presentacion
 
         private void txtboxFiltroArticulos_TextChanged(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada, listaFinal;
+            List<Articulo> listaFiltrada;
             string filtro = txtboxFiltroArticulos.Text;
             if (filtro.Length >= 2)
             {
@@ -289,7 +288,6 @@ namespace presentacion
             return false;
         }
 
-
         private bool soloNumeros(string cadena)
         {
             foreach (char caracter in cadena)
@@ -335,7 +333,6 @@ namespace presentacion
                 throw ex;
             }
         }
-
         private void btnNavegarAtras_Click(object sender, EventArgs e)
         {
             try
@@ -357,7 +354,6 @@ namespace presentacion
             }
             
         }
-
         private void btnAgregarImg_Click(object sender, EventArgs e)
         {
             try
@@ -396,7 +392,6 @@ namespace presentacion
                 throw ex;
             }
         }
-
         private void btnEliminarImg_Click(object sender, EventArgs e)
         {
             try

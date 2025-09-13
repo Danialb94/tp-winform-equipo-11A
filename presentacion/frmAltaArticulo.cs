@@ -17,6 +17,7 @@ namespace presentacion
     {
         private Articulo articulo = null;
         private List<Imagen> listaImagenes;
+        private int imagenAux;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -89,6 +90,7 @@ namespace presentacion
 
             try
             {
+                gbxNavegadorImg.Visible = false;
                 cmbMarcaArticulo.DataSource = marcaNegocio.listar();
                 cmbMarcaArticulo.ValueMember = "IdMarca";
                 cmbMarcaArticulo.DisplayMember = "Descripcion";
@@ -98,7 +100,23 @@ namespace presentacion
 
                 if (articulo != null)
                 {
-                    btnAgregarImg.Visible = false;
+
+                    if (articulo != null && articulo.Imagenes != null && articulo.Imagenes.Count > 0)
+                    {
+                        cargarImagen(articulo.Imagenes[0].urlImagen);
+                        if (articulo.Imagenes.Count > 1)
+                        {
+                            gbxNavegadorImg.Visible = true;
+                            btnNavegarAtras.Visible = false;
+                            btnNavegarAdelante.Visible = true;
+                        }
+                        else
+                        {
+                            gbxNavegadorImg.Visible = false;
+                        }
+                    }
+                    btnAceptarNuevoArticulo.Text = "Guardar";
+                    btnAgregarImg.Text = "Modificar Imagen";
                     txtboxCodigoArticulo.Text = articulo.Codigo;
                     txtboxNombreArticulo.Text = articulo.Nombre;
                     txtboxDescripcionArticulo.Text = articulo.Descripcion;
@@ -178,5 +196,42 @@ namespace presentacion
 
             }
         }
+
+        ///NAVEGAR IMAGENES
+        private void btnNavegarAdelante_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                imagenAux++;
+                cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                btnNavegarAtras.Visible = true;
+                if (articulo.Imagenes.Count - 1 == imagenAux) btnNavegarAdelante.Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void btnNavegarAtras_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                imagenAux--;
+                cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                btnNavegarAdelante.Visible = true;
+                if (0 == imagenAux) btnNavegarAtras.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+
+
+
     }
 }

@@ -53,7 +53,11 @@
             this.lblCamposObligatoriosfrmAlta = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblImgAgregadas = new System.Windows.Forms.Label();
+            this.gbxNavegadorImg = new System.Windows.Forms.GroupBox();
+            this.btnNavegarAtras = new System.Windows.Forms.Button();
+            this.btnNavegarAdelante = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbImagenArticulo)).BeginInit();
+            this.gbxNavegadorImg.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCodigoArticulo
@@ -317,11 +321,44 @@
             this.lblImgAgregadas.TabIndex = 24;
             this.lblImgAgregadas.Text = "No agregó imagenes aún";
             // 
+            // gbxNavegadorImg
+            // 
+            this.gbxNavegadorImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbxNavegadorImg.Controls.Add(this.btnNavegarAtras);
+            this.gbxNavegadorImg.Controls.Add(this.btnNavegarAdelante);
+            this.gbxNavegadorImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbxNavegadorImg.Location = new System.Drawing.Point(391, 329);
+            this.gbxNavegadorImg.Name = "gbxNavegadorImg";
+            this.gbxNavegadorImg.Size = new System.Drawing.Size(80, 27);
+            this.gbxNavegadorImg.TabIndex = 25;
+            this.gbxNavegadorImg.TabStop = false;
+            // 
+            // btnNavegarAtras
+            // 
+            this.btnNavegarAtras.Location = new System.Drawing.Point(0, 0);
+            this.btnNavegarAtras.Name = "btnNavegarAtras";
+            this.btnNavegarAtras.Size = new System.Drawing.Size(27, 27);
+            this.btnNavegarAtras.TabIndex = 17;
+            this.btnNavegarAtras.Text = "<";
+            this.btnNavegarAtras.UseVisualStyleBackColor = true;
+            this.btnNavegarAtras.Click += new System.EventHandler(this.btnNavegarAtras_Click);
+            // 
+            // btnNavegarAdelante
+            // 
+            this.btnNavegarAdelante.Location = new System.Drawing.Point(53, 0);
+            this.btnNavegarAdelante.Name = "btnNavegarAdelante";
+            this.btnNavegarAdelante.Size = new System.Drawing.Size(27, 27);
+            this.btnNavegarAdelante.TabIndex = 18;
+            this.btnNavegarAdelante.Text = ">";
+            this.btnNavegarAdelante.UseVisualStyleBackColor = true;
+            this.btnNavegarAdelante.Click += new System.EventHandler(this.btnNavegarAdelante_Click);
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 443);
+            this.Controls.Add(this.gbxNavegadorImg);
             this.Controls.Add(this.lblImgAgregadas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblCamposObligatoriosfrmAlta);
@@ -353,6 +390,7 @@
             this.Text = "Alta Articulo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbImagenArticulo)).EndInit();
+            this.gbxNavegadorImg.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +423,8 @@
         private System.Windows.Forms.Label lblCamposObligatoriosfrmAlta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblImgAgregadas;
+        private System.Windows.Forms.GroupBox gbxNavegadorImg;
+        private System.Windows.Forms.Button btnNavegarAtras;
+        private System.Windows.Forms.Button btnNavegarAdelante;
     }
 }
