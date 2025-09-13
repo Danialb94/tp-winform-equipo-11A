@@ -183,7 +183,7 @@
             this.btnAceptarNuevoArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptarNuevoArticulo.Name = "btnAceptarNuevoArticulo";
             this.btnAceptarNuevoArticulo.Size = new System.Drawing.Size(100, 28);
-            this.btnAceptarNuevoArticulo.TabIndex = 7;
+            this.btnAceptarNuevoArticulo.TabIndex = 9;
             this.btnAceptarNuevoArticulo.Text = "Aceptar";
             this.btnAceptarNuevoArticulo.UseVisualStyleBackColor = true;
             this.btnAceptarNuevoArticulo.Click += new System.EventHandler(this.btnAceptarNuevoArticulo_Click);
@@ -195,7 +195,7 @@
             this.btnCancelarNuevoArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarNuevoArticulo.Name = "btnCancelarNuevoArticulo";
             this.btnCancelarNuevoArticulo.Size = new System.Drawing.Size(100, 28);
-            this.btnCancelarNuevoArticulo.TabIndex = 8;
+            this.btnCancelarNuevoArticulo.TabIndex = 10;
             this.btnCancelarNuevoArticulo.Text = "Cancelar";
             this.btnCancelarNuevoArticulo.UseVisualStyleBackColor = true;
             this.btnCancelarNuevoArticulo.Click += new System.EventHandler(this.btnCancelarNuevoArticulo_Click);
@@ -247,7 +247,7 @@
             this.btnAgregarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarImg.Name = "btnAgregarImg";
             this.btnAgregarImg.Size = new System.Drawing.Size(139, 27);
-            this.btnAgregarImg.TabIndex = 18;
+            this.btnAgregarImg.TabIndex = 8;
             this.btnAgregarImg.Text = "Agregar Imagen";
             this.btnAgregarImg.UseVisualStyleBackColor = true;
             this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
@@ -331,7 +331,7 @@
             this.gbxNavegadorImg.Location = new System.Drawing.Point(391, 329);
             this.gbxNavegadorImg.Name = "gbxNavegadorImg";
             this.gbxNavegadorImg.Size = new System.Drawing.Size(80, 27);
-            this.gbxNavegadorImg.TabIndex = 25;
+            this.gbxNavegadorImg.TabIndex = 7;
             this.gbxNavegadorImg.TabStop = false;
             // 
             // btnNavegarAtras

@@ -67,7 +67,7 @@ namespace presentacion
             this.btnEliminar.Location = new System.Drawing.Point(190, 460);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(143, 40);
-            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Visible = false;
@@ -79,7 +79,7 @@ namespace presentacion
             this.btnModificar.Location = new System.Drawing.Point(26, 462);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(143, 38);
-            this.btnModificar.TabIndex = 4;
+            this.btnModificar.TabIndex = 0;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Visible = false;

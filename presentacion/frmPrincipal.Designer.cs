@@ -78,7 +78,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1222, 29);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // articuloToolStripMenuItem
@@ -218,7 +218,7 @@
             this.txtboxFiltroArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroArticulos.Name = "txtboxFiltroArticulos";
             this.txtboxFiltroArticulos.Size = new System.Drawing.Size(277, 22);
-            this.txtboxFiltroArticulos.TabIndex = 5;
+            this.txtboxFiltroArticulos.TabIndex = 0;
             this.txtboxFiltroArticulos.TextChanged += new System.EventHandler(this.txtboxFiltroArticulos_TextChanged);
             // 
             // lblCampoArticulo
@@ -239,7 +239,7 @@
             this.cboCampoArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.cboCampoArticulo.Name = "cboCampoArticulo";
             this.cboCampoArticulo.Size = new System.Drawing.Size(160, 24);
-            this.cboCampoArticulo.TabIndex = 7;
+            this.cboCampoArticulo.TabIndex = 8;
             this.cboCampoArticulo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cboCriterioArticulos
@@ -250,7 +250,7 @@
             this.cboCriterioArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.cboCriterioArticulos.Name = "cboCriterioArticulos";
             this.cboCriterioArticulos.Size = new System.Drawing.Size(160, 24);
-            this.cboCriterioArticulos.TabIndex = 8;
+            this.cboCriterioArticulos.TabIndex = 9;
             // 
             // lblCriterioArticulos
             // 
@@ -278,7 +278,7 @@
             this.txtboxFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
             this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(132, 22);
-            this.txtboxFiltroAvanzadoArticulos.TabIndex = 11;
+            this.txtboxFiltroAvanzadoArticulos.TabIndex = 10;
             // 
             // btnFiltroAvanzado
             // 
@@ -286,7 +286,7 @@
             this.btnFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(100, 28);
-            this.btnFiltroAvanzado.TabIndex = 12;
+            this.btnFiltroAvanzado.TabIndex = 11;
             this.btnFiltroAvanzado.Text = "Buscar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
             this.btnFiltroAvanzado.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -297,7 +297,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(161, 37);
-            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar un Artículo";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
@@ -308,7 +308,7 @@
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(161, 37);
-            this.btnModificar.TabIndex = 14;
+            this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.modificarArticulosToolStripMenuItem_Click);
@@ -319,7 +319,7 @@
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(161, 37);
-            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.eliminarArticuloToolStripMenuItem_Click);
@@ -330,7 +330,7 @@
             this.btnDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(161, 37);
-            this.btnDetalle.TabIndex = 16;
+            this.btnDetalle.TabIndex = 2;
             this.btnDetalle.Text = "Ver Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
@@ -340,7 +340,7 @@
             this.btnNavegarAtras.Location = new System.Drawing.Point(0, 4);
             this.btnNavegarAtras.Name = "btnNavegarAtras";
             this.btnNavegarAtras.Size = new System.Drawing.Size(88, 37);
-            this.btnNavegarAtras.TabIndex = 17;
+            this.btnNavegarAtras.TabIndex = 0;
             this.btnNavegarAtras.Text = "<";
             this.btnNavegarAtras.UseVisualStyleBackColor = true;
             this.btnNavegarAtras.Click += new System.EventHandler(this.btnNavegarAtras_Click);
@@ -350,7 +350,7 @@
             this.btnNavegarAdelante.Location = new System.Drawing.Point(179, 4);
             this.btnNavegarAdelante.Name = "btnNavegarAdelante";
             this.btnNavegarAdelante.Size = new System.Drawing.Size(88, 37);
-            this.btnNavegarAdelante.TabIndex = 18;
+            this.btnNavegarAdelante.TabIndex = 1;
             this.btnNavegarAdelante.Text = ">";
             this.btnNavegarAdelante.UseVisualStyleBackColor = true;
             this.btnNavegarAdelante.Click += new System.EventHandler(this.btnNavegarAdelante_Click);
@@ -373,7 +373,7 @@
             this.btnAgregarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarImg.Name = "btnAgregarImg";
             this.btnAgregarImg.Size = new System.Drawing.Size(88, 44);
-            this.btnAgregarImg.TabIndex = 20;
+            this.btnAgregarImg.TabIndex = 5;
             this.btnAgregarImg.Text = "Agregar Imagen";
             this.btnAgregarImg.UseVisualStyleBackColor = true;
             this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
@@ -384,7 +384,7 @@
             this.btnModificarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarImg.Name = "btnModificarImg";
             this.btnModificarImg.Size = new System.Drawing.Size(88, 45);
-            this.btnModificarImg.TabIndex = 21;
+            this.btnModificarImg.TabIndex = 6;
             this.btnModificarImg.Text = "Modificar Imagen";
             this.btnModificarImg.UseVisualStyleBackColor = true;
             this.btnModificarImg.Click += new System.EventHandler(this.btnModificarImg_Click);
@@ -395,7 +395,7 @@
             this.btnEliminarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarImg.Name = "btnEliminarImg";
             this.btnEliminarImg.Size = new System.Drawing.Size(88, 44);
-            this.btnEliminarImg.TabIndex = 22;
+            this.btnEliminarImg.TabIndex = 7;
             this.btnEliminarImg.Text = "Eliminar Imagen";
             this.btnEliminarImg.UseVisualStyleBackColor = true;
             this.btnEliminarImg.Click += new System.EventHandler(this.btnEliminarImg_Click);

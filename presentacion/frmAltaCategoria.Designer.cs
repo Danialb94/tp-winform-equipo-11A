@@ -63,7 +63,7 @@ namespace presentacion
             this.txtDescripcionCategoria.Location = new System.Drawing.Point(176, 133);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
             this.txtDescripcionCategoria.Size = new System.Drawing.Size(167, 27);
-            this.txtDescripcionCategoria.TabIndex = 2;
+            this.txtDescripcionCategoria.TabIndex = 0;
             // 
             // btnAgregar
             // 
@@ -72,7 +72,7 @@ namespace presentacion
             this.btnAgregar.Location = new System.Drawing.Point(38, 228);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(111, 36);
-            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -84,7 +84,7 @@ namespace presentacion
             this.btnCancelar.Location = new System.Drawing.Point(320, 228);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(124, 36);
-            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

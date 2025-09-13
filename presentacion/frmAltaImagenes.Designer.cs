@@ -149,7 +149,7 @@
             this.txtUrl.Location = new System.Drawing.Point(138, 268);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(141, 22);
-            this.txtUrl.TabIndex = 10;
+            this.txtUrl.TabIndex = 0;
             this.txtUrl.TextChanged += new System.EventHandler(this.txtUrl_TextChanged);
             // 
             // txtDescripcion
