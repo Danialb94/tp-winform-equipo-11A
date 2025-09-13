@@ -56,6 +56,7 @@
             this.gbxNavegadorImg = new System.Windows.Forms.GroupBox();
             this.btnNavegarAtras = new System.Windows.Forms.Button();
             this.btnNavegarAdelante = new System.Windows.Forms.Button();
+            this.btnVaciar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbImagenArticulo)).BeginInit();
             this.gbxNavegadorImg.SuspendLayout();
             this.SuspendLayout();
@@ -211,10 +212,10 @@
             // 
             // txtboxUrlImagenArticulo
             // 
-            this.txtboxUrlImagenArticulo.Location = new System.Drawing.Point(191, 313);
+            this.txtboxUrlImagenArticulo.Location = new System.Drawing.Point(191, 316);
             this.txtboxUrlImagenArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxUrlImagenArticulo.Name = "txtboxUrlImagenArticulo";
-            this.txtboxUrlImagenArticulo.Size = new System.Drawing.Size(160, 22);
+            this.txtboxUrlImagenArticulo.Size = new System.Drawing.Size(134, 22);
             this.txtboxUrlImagenArticulo.TabIndex = 6;
             this.txtboxUrlImagenArticulo.TextChanged += new System.EventHandler(this.txtboxUrlImagenArticulo_Leave);
             this.txtboxUrlImagenArticulo.Leave += new System.EventHandler(this.txtboxUrlImagenArticulo_Leave);
@@ -353,11 +354,23 @@
             this.btnNavegarAdelante.UseVisualStyleBackColor = true;
             this.btnNavegarAdelante.Click += new System.EventHandler(this.btnNavegarAdelante_Click);
             // 
+            // btnVaciar
+            // 
+            this.btnVaciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVaciar.Location = new System.Drawing.Point(327, 316);
+            this.btnVaciar.Name = "btnVaciar";
+            this.btnVaciar.Size = new System.Drawing.Size(24, 23);
+            this.btnVaciar.TabIndex = 26;
+            this.btnVaciar.Text = "X";
+            this.btnVaciar.UseVisualStyleBackColor = true;
+            this.btnVaciar.Click += new System.EventHandler(this.btnVaciar_Click);
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 443);
+            this.Controls.Add(this.btnVaciar);
             this.Controls.Add(this.gbxNavegadorImg);
             this.Controls.Add(this.lblImgAgregadas);
             this.Controls.Add(this.label1);
@@ -426,5 +439,6 @@
         private System.Windows.Forms.GroupBox gbxNavegadorImg;
         private System.Windows.Forms.Button btnNavegarAtras;
         private System.Windows.Forms.Button btnNavegarAdelante;
+        private System.Windows.Forms.Button btnVaciar;
     }
 }

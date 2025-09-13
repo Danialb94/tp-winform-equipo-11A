@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
 using System.Net;
+using System.Windows.Documents;
 
 namespace negocio
 {
@@ -74,7 +75,6 @@ namespace negocio
         public void agregar(Articulo nuevo, List<Imagen> listaImg)
         {
             AccesoDatos datos = new AccesoDatos();
-            AccesoDatos datosIMG = new AccesoDatos();
             try
             {
                 datos.setearConsulta("Insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio,IdMarca, IdCategoria)values('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ",@IdMarca, @IdCategoria) SELECT SCOPE_IDENTITY() AS[IdArticulo]");
@@ -85,7 +85,7 @@ namespace negocio
                 if (listaImg.Count != 0)
                 {
                     datos.Lector.Read();
-                    for (int x=0; x < listaImg.Count; x++)
+                    for (int x = 0; x < listaImg.Count; x++)
                     {
                         Imagen imagen = new Imagen();
                         imagen.urlImagen = listaImg[x].urlImagen;
@@ -105,7 +105,6 @@ namespace negocio
             finally
             {
                 datos.cerrarConexion();
-                datosIMG.cerrarConexion();
             }
         }
 
@@ -125,7 +124,18 @@ namespace negocio
                 datos.setearParametro("@id", articulo.IdArticulo);
 
                 datos.ejecutarAccion();
+                if (listaImg.Count != 0)
+                {
+                    for (int x = 0; x < listaImg.Count; x++)
+                    {
+                        Imagen imagen = new Imagen();
+                        imagen.urlImagen = listaImg[x].urlImagen;
+                        imagen.idImagen = listaImg[x].idImagen;
+                        ImagenNegocio negocio = new ImagenNegocio();
+                        negocio.modificar(imagen);
+                    }
 
+                }
 
             }
             catch (Exception ex)
@@ -140,6 +150,7 @@ namespace negocio
             }
 
         }
+
 
         public void eliminarArticulo(int id)
         {

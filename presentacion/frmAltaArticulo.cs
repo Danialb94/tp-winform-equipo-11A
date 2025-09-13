@@ -37,6 +37,7 @@ namespace presentacion
             this.Close();
         }
 
+
         private void btnAceptarNuevoArticulo_Click(object sender, EventArgs e)
         {   
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -59,7 +60,7 @@ namespace presentacion
                 {
                     cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
-                    negocio.modificarArticulo(articulo, listaImagenes);
+                    negocio.modificarArticulo(articulo, articulo.Imagenes);
 
                     MessageBox.Show("Modificado exitosamente");
                 }
@@ -101,7 +102,7 @@ namespace presentacion
                 if (articulo != null)
                 {
 
-                    if (articulo != null && articulo.Imagenes != null && articulo.Imagenes.Count > 0)
+                    if (articulo.Imagenes != null && articulo.Imagenes.Count > 0)
                     {
                         cargarImagen(articulo.Imagenes[0].urlImagen);
                         if (articulo.Imagenes.Count > 1)
@@ -115,18 +116,25 @@ namespace presentacion
                             gbxNavegadorImg.Visible = false;
                         }
                     }
+                    lblImgAgregadas.Visible = false;
                     btnAceptarNuevoArticulo.Text = "Guardar";
                     btnAgregarImg.Text = "Modificar Imagen";
+
                     txtboxCodigoArticulo.Text = articulo.Codigo;
                     txtboxNombreArticulo.Text = articulo.Nombre;
                     txtboxDescripcionArticulo.Text = articulo.Descripcion;
                     txtboxPrecioArticulo.Text = articulo.Precio.ToString();
-                    if (articulo.Imagenes != null)
-                        cargarImagen(articulo.Imagenes[0].urlImagen);
-                    else cargarImagen(null);
+
                     cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
 
+                    if (articulo.Imagenes != null)
+                    {
+                        cargarImagen(articulo.Imagenes[0].urlImagen);
+                        txtboxUrlImagenArticulo.Text = articulo.Imagenes[0].urlImagen;
+                    }
+                    else cargarImagen(null);
+                    listaImagenes = articulo.Imagenes;
                 }
                 validarCampos();
             }
@@ -168,6 +176,7 @@ namespace presentacion
             cargarImagen(txtboxUrlImagenArticulo.Text);
         }
 
+
         private void cargarImagen(string imagen)
         {
             try
@@ -179,7 +188,6 @@ namespace presentacion
                 picbImagenArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
         }
-
         private void btnAgregarImg_Click(object sender, EventArgs e)
         {
             if(txtboxUrlImagenArticulo.Text == "")
@@ -188,14 +196,24 @@ namespace presentacion
             }
             else
             {
-                Imagen img = new Imagen();
-                img.urlImagen = txtboxUrlImagenArticulo.Text;
-                listaImagenes.Add(img);
-                lblImgAgregadas.Text = "Imagenes cargadas: " + listaImagenes.Count;
-                txtboxUrlImagenArticulo.Text = "";
+                if(articulo == null)
+                {
+                    Imagen img = new Imagen();
+                    img.urlImagen = txtboxUrlImagenArticulo.Text;
+                    listaImagenes.Add(img);
+                    lblImgAgregadas.Text = "Imagenes cargadas: " + listaImagenes.Count;
+                    txtboxUrlImagenArticulo.Text = "";
+                }
+                else
+                {
+                    articulo.Imagenes[imagenAux].urlImagen = txtboxUrlImagenArticulo.Text;
+                    cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                }
 
             }
         }
+
+
 
         ///NAVEGAR IMAGENES
         private void btnNavegarAdelante_Click(object sender, EventArgs e)
@@ -205,6 +223,7 @@ namespace presentacion
                 imagenAux++;
                 cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
                 btnNavegarAtras.Visible = true;
+                txtboxUrlImagenArticulo.Text = articulo.Imagenes[imagenAux].urlImagen;
                 if (articulo.Imagenes.Count - 1 == imagenAux) btnNavegarAdelante.Visible = false;
 
             }
@@ -220,6 +239,7 @@ namespace presentacion
                 imagenAux--;
                 cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
                 btnNavegarAdelante.Visible = true;
+                txtboxUrlImagenArticulo.Text = articulo.Imagenes[imagenAux].urlImagen;
                 if (0 == imagenAux) btnNavegarAtras.Visible = false;
             }
             catch (Exception ex)
@@ -229,9 +249,9 @@ namespace presentacion
 
         }
 
-
-
-
-
+        private void btnVaciar_Click(object sender, EventArgs e)
+        {
+            txtboxUrlImagenArticulo.Text = "";
+        }
     }
 }

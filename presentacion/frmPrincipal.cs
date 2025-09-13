@@ -22,6 +22,7 @@ namespace presentacion
             InitializeComponent();
         }
 
+        ///ARTICULOS
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarArticulos();
@@ -38,7 +39,6 @@ namespace presentacion
             cboCriterioArticulos.SelectedIndex = 0;
             btnNavegarAtras.Visible = false;
         }
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo artSeleccionado = null;
@@ -77,6 +77,7 @@ namespace presentacion
             dgvArticulos.DataSource = listaArticulo;
             ocultarColumnasArticulos();
             cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
+            txtboxFiltroAvanzadoArticulos.Text = "";
         }
         private void ocultarColumnasArticulos()
         {
@@ -93,6 +94,7 @@ namespace presentacion
                 pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
         }
+        ///ABM - ARTICULOS
         private void agregarArticulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAltaArticulo alta = new frmAltaArticulo();
@@ -108,12 +110,12 @@ namespace presentacion
                 articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmAltaArticulo modificar = new frmAltaArticulo(articuloSeleccionado);
                 modificar.ShowDialog();
-                cargarArticulos();
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione un artículo primero.");
             }
+            cargarArticulos();
 
         }
         
@@ -130,13 +132,13 @@ namespace presentacion
                     {
                         seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                         negocio.eliminarArticulo(seleccionado.IdArticulo);
-                        cargarArticulos();
                     }
                 }
                 else
                 {
                     MessageBox.Show("Por favor, seleccione un artículo primero.");
                 }
+                cargarArticulos();
             }
             catch (Exception ex)
             {
@@ -144,35 +146,26 @@ namespace presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void listadoDeMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void verDetalleArticuloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMarcas marcas = new frmMarcas();
-            marcas.ShowDialog();
+
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+                frmDetalleArticulo detalle = new frmDetalleArticulo(seleccionado);
+                detalle.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un artículo primero.");
+            }
+            cargarArticulos();
         }
 
-        private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAltaMarca alta = new frmAltaMarca();
-            alta.ShowDialog();
-        }
 
-        private void listadoDeCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCategoria categoria = new frmCategoria();
-            categoria.ShowDialog();
-
-        }
-
-        private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAltaCategoria alta = new frmAltaCategoria();
-            alta.ShowDialog();
-            frmCategoria categoria = new frmCategoria();
-            categoria.ShowDialog();
-
-        }
-
+        ///FILTROS
+        
         private void txtboxFiltroArticulos_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
@@ -215,7 +208,7 @@ namespace presentacion
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
 
@@ -237,24 +230,8 @@ namespace presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
 
-        private void verDetalleArticuloToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            if (dgvArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-                frmDetalleArticulo detalle = new frmDetalleArticulo(seleccionado);
-                detalle.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un artículo primero.");
-            }
-        }
 
         private bool validarFiltro()
         {
@@ -297,18 +274,52 @@ namespace presentacion
             }
             return true;
         }
+
+
+        ///MARCAS
+        private void listadoDeMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMarcas marcas = new frmMarcas();
+            marcas.ShowDialog();
+        }
+        private void agregarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca alta = new frmAltaMarca();
+            alta.ShowDialog();
+        }
+
+
+        ///CATEGORIAS
+        private void listadoDeCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+
+        }
+
+        private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria alta = new frmAltaCategoria();
+            alta.ShowDialog();
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+            cargarArticulos();
+
+        }
+
         private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria modificar = new frmCategoria(true, false);
             modificar.ShowDialog();
+            cargarArticulos();
         }
 
         private void eliminarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria eliminar = new frmCategoria(false, true);
             eliminar.ShowDialog();
+            cargarArticulos();
         }
-
 
 
         //IMAGENES
@@ -426,6 +437,7 @@ namespace presentacion
                 throw ex;
             }
         }
+
     }
 }
 

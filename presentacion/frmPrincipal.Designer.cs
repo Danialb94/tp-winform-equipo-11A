@@ -289,7 +289,7 @@
             this.btnFiltroAvanzado.TabIndex = 12;
             this.btnFiltroAvanzado.Text = "Buscar";
             this.btnFiltroAvanzado.UseVisualStyleBackColor = true;
-            this.btnFiltroAvanzado.Click += new System.EventHandler(this.button1_Click);
+            this.btnFiltroAvanzado.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAgregar
             // 
