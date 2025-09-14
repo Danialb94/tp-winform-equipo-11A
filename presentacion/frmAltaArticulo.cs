@@ -18,6 +18,7 @@ namespace presentacion
         private Articulo articulo = null;
         private List<Imagen> listaImagenes;
         private int imagenAux;
+        private int flagModificado = 1;//para cuando se agrega durante una modificación
         private List<Marca> listaMar;
         private List<Categoria> listaCat;
 
@@ -44,16 +45,16 @@ namespace presentacion
 
 
         private void btnAceptarNuevoArticulo_Click(object sender, EventArgs e)
-        {   
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             btnAceptarNuevoArticulo.Enabled = false;
 
             try
             {
                 if (articulo == null)
-                   articulo = new Articulo();
-                
-                articulo.Codigo =txtboxCodigoArticulo.Text;
+                    articulo = new Articulo();
+
+                articulo.Codigo = txtboxCodigoArticulo.Text;
                 articulo.Nombre = txtboxNombreArticulo.Text;
                 articulo.Descripcion = txtboxDescripcionArticulo.Text;
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
@@ -65,18 +66,26 @@ namespace presentacion
                 {
                     cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
                     cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
-                    negocio.modificarArticulo(articulo, articulo.Imagenes);
+                    if (flagModificado != -1)
+                    {
+                        negocio.modificarArticulo(articulo, articulo.Imagenes, true);
+                    }
+                    else
+                    {
+
+                        negocio.modificarArticulo(articulo, articulo.Imagenes, false);
+                    }
 
                     MessageBox.Show("Modificado exitosamente");
                 }
                 else
                 {
-                    
+
                     negocio.agregar(articulo, listaImagenes);
                     MessageBox.Show("Articulo agregado exitosamente");
                 }
 
-            
+
 
                 Close();
             }
@@ -117,7 +126,7 @@ namespace presentacion
                 cmbMarcaArticulo.DisplayMember = "Descripcion";
                 cmbCategoriaArticulo.DataSource = categoriaNeg.Listar();
                 cmbCategoriaArticulo.ValueMember = "IdCategoria";
-                cmbCategoriaArticulo.DisplayMember= "Descripcion";
+                cmbCategoriaArticulo.DisplayMember = "Descripcion";
 
                 if (articulo != null)
                 {
@@ -148,8 +157,16 @@ namespace presentacion
 
                     if (articulo.Imagenes != null)
                     {
-                        cargarImagen(articulo.Imagenes[0].urlImagen);
-                        txtboxUrlImagenArticulo.Text = articulo.Imagenes[0].urlImagen;
+                        if (articulo.Imagenes.Count == 0)
+                        {
+                            btnAgregarImg.Text = "Agregar Imagen";
+                            txtboxUrlImagenArticulo.Text = "";
+                        }
+                        else
+                        {
+                            cargarImagen(articulo.Imagenes[0].urlImagen);
+                            txtboxUrlImagenArticulo.Text = articulo.Imagenes[0].urlImagen;
+                        }
                     }
                     else cargarImagen(null);
                     listaImagenes = articulo.Imagenes;
@@ -208,13 +225,13 @@ namespace presentacion
         }
         private void btnAgregarImg_Click(object sender, EventArgs e)
         {
-            if(txtboxUrlImagenArticulo.Text == "")
+            if (txtboxUrlImagenArticulo.Text == "")
             {
                 MessageBox.Show("Por favor, complete el campo antes de intentar agregar una imagen.");
             }
             else
             {
-                if(articulo == null)
+                if (articulo == null)
                 {
                     Imagen img = new Imagen();
                     img.urlImagen = txtboxUrlImagenArticulo.Text;
@@ -224,17 +241,31 @@ namespace presentacion
                 }
                 else
                 {
-                    if (txtboxUrlImagenArticulo.Text == articulo.Imagenes[imagenAux].urlImagen)
+                    if (articulo.Imagenes.Count == 0)
                     {
-                        MessageBox.Show("Seleccione una imagen distinta a la actual para generar la modificación.");
+                        Imagen img = new Imagen();
+                        img.urlImagen = txtboxUrlImagenArticulo.Text;
+                        articulo.Imagenes.Add(img);
+                        cargarImagen(articulo.Imagenes[0].urlImagen);
+                        MessageBox.Show("Se cargó la imagen, recuerde guardar los cambios.");
+                        flagModificado = -1;
+                        btnAgregarImg.Text = "Modificar Imagen";
                     }
                     else
                     {
-                        articulo.Imagenes[imagenAux].urlImagen = txtboxUrlImagenArticulo.Text;
-                        cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
-                        MessageBox.Show("Se modificó la imagen, recuerde guardar los cambios.");
+                        if (txtboxUrlImagenArticulo.Text == articulo.Imagenes[imagenAux].urlImagen)
+                        {
+                            MessageBox.Show("Seleccione una imagen distinta a la actual para generar la modificación.");
+                        }
+                        else
+                        {
+                            articulo.Imagenes[imagenAux].urlImagen = txtboxUrlImagenArticulo.Text;
+                            cargarImagen(articulo.Imagenes[imagenAux].urlImagen);
+                            MessageBox.Show("Se modificó la imagen, recuerde guardar los cambios.");
 
+                        }
                     }
+
                 }
 
             }

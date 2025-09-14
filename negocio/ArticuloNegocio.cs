@@ -110,8 +110,8 @@ namespace negocio
             }
         }
 
-        public void modificarArticulo(Articulo articulo, List<Imagen> listaImg)
-        {   
+        public void modificarArticulo(Articulo articulo, List<Imagen> listaImg, bool existiaImg)
+        {
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -132,9 +132,17 @@ namespace negocio
                     {
                         Imagen imagen = new Imagen();
                         imagen.urlImagen = listaImg[x].urlImagen;
-                        imagen.idImagen = listaImg[x].idImagen;
                         ImagenNegocio negocio = new ImagenNegocio();
-                        negocio.modificar(imagen);
+                        if (existiaImg)
+                        {
+                            imagen.idImagen = listaImg[x].idImagen;
+                            negocio.modificar(imagen);
+                        }
+                        else
+                        {
+                            imagen.idArticulo = articulo.IdArticulo;
+                            negocio.agregar(imagen);
+                        }
                     }
 
                 }
