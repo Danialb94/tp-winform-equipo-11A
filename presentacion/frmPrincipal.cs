@@ -86,6 +86,7 @@ namespace presentacion
 
             if (listaArticulo.Count > 0)
             {
+                conArticulos();
                 if (listaArticulo[0].Imagenes != null && listaArticulo[0].Imagenes.Count > 0)
                 {
                     cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
