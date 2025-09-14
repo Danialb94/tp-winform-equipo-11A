@@ -18,6 +18,8 @@ namespace negocio
             List<Articulo>lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             AccesoDatos datosIMG = new AccesoDatos();
+           
+
 
             try
             {
@@ -292,8 +294,7 @@ namespace negocio
                         articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["Precio"] is DBNull))
                         articulo.Precio = (decimal)datos.Lector["Precio"];
-                    //if (!(datos.Lector["ImagenUrl"] is DBNull))
-                    //articulo.Imagen = (string)datos.Lector["ImagenUrl"];
+                   
                     ImagenNegocio negocio = new ImagenNegocio();
                     if (negocio.listarXArticulo(articulo.IdArticulo) != null)
                     {

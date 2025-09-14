@@ -82,9 +82,28 @@ namespace presentacion
             listaArticulo = Negocio.listar();
             dgvArticulos.DataSource = listaArticulo;
             ocultarColumnasArticulos();
-            cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
             txtboxFiltroAvanzadoArticulos.Text = "";
+
+            if (listaArticulo.Count > 0)
+            {
+                btnDetalle.Enabled = true;
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+               
+                if (listaArticulo[0].Imagenes != null && listaArticulo[0].Imagenes.Count > 0)
+                    cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
+                else
+                    cargarImagen(""); 
+            }
+            else
+            {
+                btnDetalle.Enabled = false;
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+                cargarImagen(""); 
+            }
         }
+
         private void ocultarColumnasArticulos()
         {
             dgvArticulos.Columns["IdArticulo"].Visible = false;

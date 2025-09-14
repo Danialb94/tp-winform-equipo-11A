@@ -18,6 +18,9 @@ namespace presentacion
         private Articulo articulo = null;
         private List<Imagen> listaImagenes;
         private int imagenAux;
+        private List<Marca> listaMar;
+        private List<Categoria> listaCat;
+
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -93,6 +96,21 @@ namespace presentacion
 
             try
             {
+                listaMar = marcaNegocio.listar();
+                listaCat = categoriaNeg.Listar();
+                if (listaMar == null || listaMar.Count == 0)
+                {
+                    MessageBox.Show("No hay marcas cargadas en el sistema. No se puede dar de alta un artículo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+                if (listaCat == null || listaCat.Count == 0)
+                {
+                    MessageBox.Show("No hay categorías cargadas en el sistema. No se puede dar de alta un artículo.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
+
                 gbxNavegadorImg.Visible = false;
                 cmbMarcaArticulo.DataSource = marcaNegocio.listar();
                 cmbMarcaArticulo.ValueMember = "IdMarca";
@@ -262,5 +280,7 @@ namespace presentacion
         {
             txtboxUrlImagenArticulo.Text = "";
         }
+
+
     }
 }
