@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.articuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,9 +164,9 @@
             // 
             // dgvArticulos
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.dgvArticulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dgvArticulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,7 +190,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(26, 40);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(308, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(307, 32);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
@@ -214,7 +214,7 @@
             this.lblFiltroArticulos.Location = new System.Drawing.Point(29, 92);
             this.lblFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroArticulos.Name = "lblFiltroArticulos";
-            this.lblFiltroArticulos.Size = new System.Drawing.Size(131, 21);
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(101, 16);
             this.lblFiltroArticulos.TabIndex = 4;
             this.lblFiltroArticulos.Text = "Filtro Rápido";
             // 
@@ -234,7 +234,7 @@
             this.lblCampoArticulo.Location = new System.Drawing.Point(25, 607);
             this.lblCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoArticulo.Name = "lblCampoArticulo";
-            this.lblCampoArticulo.Size = new System.Drawing.Size(79, 21);
+            this.lblCampoArticulo.Size = new System.Drawing.Size(58, 16);
             this.lblCampoArticulo.TabIndex = 6;
             this.lblCampoArticulo.Text = "Campo:";
             // 
@@ -266,7 +266,7 @@
             this.lblCriterioArticulos.Location = new System.Drawing.Point(287, 607);
             this.lblCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterioArticulos.Name = "lblCriterioArticulos";
-            this.lblCriterioArticulos.Size = new System.Drawing.Size(86, 21);
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(65, 16);
             this.lblCriterioArticulos.TabIndex = 9;
             this.lblCriterioArticulos.Text = "Criterio:";
             // 
@@ -277,7 +277,7 @@
             this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(547, 607);
             this.lblFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
-            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(165, 21);
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(122, 16);
             this.lblFiltroAvanzadoArticulos.TabIndex = 10;
             this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
             // 

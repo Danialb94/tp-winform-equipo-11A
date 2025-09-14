@@ -53,28 +53,28 @@ namespace presentacion
             if (dgvArticulos.CurrentRow != null && dgvArticulos.CurrentRow.DataBoundItem != null)
             {
                 artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                if (artSeleccionado.Imagenes.Count == 0)
+                {
+                    noTieneImagenes();
+                }
             }
-
             if (artSeleccionado != null && artSeleccionado.Imagenes != null && artSeleccionado.Imagenes.Count > 0)
             {
                 cargarImagen(artSeleccionado.Imagenes[0].urlImagen);
                 if (artSeleccionado.Imagenes.Count > 1)
                 {
-                    gbxNavegadorImg.Visible = true;
-                    btnNavegarAtras.Visible = false;
-                    btnNavegarAdelante.Visible = true;
+                    tieneImagenes(true);
                 }
                 else
                 {
-                    gbxNavegadorImg.Visible = false;
+                    tieneImagenes(false);
                 }
+
             }
             else
             {
-                cargarImagen(null);
+                noTieneImagenes();
             }
-
-
         }
         private void cargarArticulos()
         {
@@ -86,28 +86,68 @@ namespace presentacion
 
             if (listaArticulo.Count > 0)
             {
-                btnDetalle.Enabled = true;
-                btnModificar.Enabled = true;
-                btnEliminar.Enabled = true;
-               
                 if (listaArticulo[0].Imagenes != null && listaArticulo[0].Imagenes.Count > 0)
+                {
                     cargarImagen(listaArticulo[0].Imagenes[0].urlImagen);
+                    conArticulos();
+                }
                 else
-                    cargarImagen(""); 
+                    cargarImagen(null);
             }
             else
             {
-                btnDetalle.Enabled = false;
-                btnModificar.Enabled = false;
-                btnEliminar.Enabled = false;
-                cargarImagen(""); 
+                sinArticulos();
             }
+        }
+
+        /// VISTAS
+        private void noTieneImagenes()
+        {
+            btnAgregarImg.Enabled = true;
+            gbxNavegadorImg.Visible = false;
+            btnModificarImg.Enabled = false;
+            btnEliminarImg.Enabled = false;
+            cargarImagen(null);
+        }
+        private void tieneImagenes(bool masDeUna)
+        {
+            btnAgregarImg.Enabled = true;
+            btnModificarImg.Enabled = true;
+            btnEliminarImg.Enabled = true;
+            if (masDeUna)
+            {
+                gbxNavegadorImg.Visible = true;
+                btnNavegarAtras.Visible = false;
+                btnNavegarAdelante.Visible = true;
+            }
+            else
+            {
+                gbxNavegadorImg.Visible = false;
+            }
+        }
+        private void conArticulos()
+        {
+            btnDetalle.Enabled = true;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+        }
+        private void sinArticulos()
+        {
+            btnDetalle.Enabled = false;
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnAgregarImg.Enabled = false;
+            btnModificarImg.Enabled = false;
+            btnEliminarImg.Enabled = false;
+            gbxNavegadorImg.Visible = false;
+            cargarImagen("");
         }
 
         private void ocultarColumnasArticulos()
         {
             dgvArticulos.Columns["IdArticulo"].Visible = false;
         }
+
         private void cargarImagen(string imagen)
         {
             try

@@ -17,15 +17,15 @@ namespace presentacion
         {
             InitializeComponent();
 
-          txtboxDetalleCodigo.Text = articulo.Codigo;
-          txtboxDetalleNombre.Text = articulo.Nombre;
-          txtboxDetalleDescripcion.Text = articulo.Descripcion;
-          txtboxDetalleMarca.Text = articulo.Marca.Descripcion;
-          txtboxDetalleCategoria.Text = articulo.Categoria.Descripcion;
-          txtboxDetallePrecio.Text = articulo.Precio.ToString();
-          if (articulo.Imagenes != null)
+            txtboxDetalleCodigo.Text = articulo.Codigo;
+            txtboxDetalleNombre.Text = articulo.Nombre;
+            txtboxDetalleDescripcion.Text = articulo.Descripcion;
+            txtboxDetalleMarca.Text = articulo.Marca.Descripcion;
+            txtboxDetalleCategoria.Text = articulo.Categoria.Descripcion;
+            txtboxDetallePrecio.Text = articulo.Precio.ToString();
+            if (articulo.Imagenes.Count > 0)
                 cargarImagen(articulo.Imagenes[0].urlImagen);
-          else cargarImagen(null);
+            else cargarImagen(null);
 
         }
         private void cargarImagen(string imagen)
