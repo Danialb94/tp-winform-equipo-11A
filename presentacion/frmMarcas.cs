@@ -61,7 +61,12 @@ namespace presentacion
                     
                     if (negocio.tieneArticulosAsociados(seleccionado.IdMarca))
                     {
-                        MessageBox.Show("No se puede eliminar la marca porque tiene artículos asociados.");
+                        MessageBox.Show(
+                            "No se puede eliminar la marca porque tiene artículos asociados.\n" +
+                            "Primero elimine los artículos de esa marca.",
+                            "ATENCIÓN",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -90,5 +95,23 @@ namespace presentacion
             }
         }
 
+        private void txtFiltroMarca_TextChanged(object sender, EventArgs e)
+        {
+            List<Marca> listaFiltrada;
+            string filtro = txtFiltroMarca.Text;
+
+            if (filtro.Length >= 1) // muestra desde la primera letra
+            {
+                listaFiltrada = listaMarca.FindAll(x => x.Descripcion.ToUpper().StartsWith(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaMarca;
+            }
+
+            dgvMarca.DataSource = null;
+            dgvMarca.DataSource = listaFiltrada;
+            dgvMarca.Columns["IdMarca"].Visible = false;
+        }
     }
 }

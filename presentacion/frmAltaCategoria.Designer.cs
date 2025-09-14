@@ -40,7 +40,7 @@ namespace presentacion
             // 
             this.lblAgregarCategoria.AutoSize = true;
             this.lblAgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregarCategoria.Location = new System.Drawing.Point(92, 34);
+            this.lblAgregarCategoria.Location = new System.Drawing.Point(31, 32);
             this.lblAgregarCategoria.Name = "lblAgregarCategoria";
             this.lblAgregarCategoria.Size = new System.Drawing.Size(300, 38);
             this.lblAgregarCategoria.TabIndex = 0;
@@ -51,16 +51,16 @@ namespace presentacion
             // 
             this.lblDescripcionCategoria.AutoSize = true;
             this.lblDescripcionCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionCategoria.Location = new System.Drawing.Point(34, 134);
+            this.lblDescripcionCategoria.Location = new System.Drawing.Point(34, 116);
             this.lblDescripcionCategoria.Name = "lblDescripcionCategoria";
-            this.lblDescripcionCategoria.Size = new System.Drawing.Size(127, 22);
+            this.lblDescripcionCategoria.Size = new System.Drawing.Size(133, 24);
             this.lblDescripcionCategoria.TabIndex = 1;
             this.lblDescripcionCategoria.Text = "Descripcion: ";
             // 
             // txtDescripcionCategoria
             // 
             this.txtDescripcionCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionCategoria.Location = new System.Drawing.Point(176, 133);
+            this.txtDescripcionCategoria.Location = new System.Drawing.Point(173, 116);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
             this.txtDescripcionCategoria.Size = new System.Drawing.Size(167, 27);
             this.txtDescripcionCategoria.TabIndex = 0;
@@ -69,7 +69,7 @@ namespace presentacion
             // 
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(38, 228);
+            this.btnAgregar.Location = new System.Drawing.Point(38, 199);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(111, 36);
             this.btnAgregar.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace presentacion
             // 
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(320, 228);
+            this.btnCancelar.Location = new System.Drawing.Point(216, 199);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(124, 36);
             this.btnCancelar.TabIndex = 2;
@@ -93,7 +93,7 @@ namespace presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 305);
+            this.ClientSize = new System.Drawing.Size(374, 273);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtDescripcionCategoria);

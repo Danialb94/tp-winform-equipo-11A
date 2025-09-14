@@ -17,25 +17,29 @@ namespace presentacion
         private List<Categoria> listaCategoria;
         private bool mostrarModificar;
         private bool mostrarEliminar;
+        private bool mostrarAdvertencia;
+        private bool esListado;
+        
         
 
 
-        public frmCategoria()
+        public frmCategoria(bool esListado)
         {
             InitializeComponent();
+            this.esListado = esListado;
             mostrarModificar = false;
             mostrarEliminar = false;
             lblTituloCategoria.Text = "Listado de Categoría";
-
-            
-
         }
-        public frmCategoria(bool mostrarModificar, bool mostrarEliminar)
+        public frmCategoria(bool mostrarModificar, bool mostrarEliminar, bool mostrarAdvertencia)
         {
             InitializeComponent();
             this.mostrarModificar = mostrarModificar;
             this.mostrarEliminar = mostrarEliminar;
+            this.mostrarAdvertencia = mostrarAdvertencia;
 
+            this.esListado = false;
+            
             if (mostrarModificar && !mostrarEliminar)
             {
                 lblTituloCategoria.Text = "Modificar Categoria";
@@ -47,8 +51,17 @@ namespace presentacion
             else
             {
                 lblTituloCategoria.Text = "Listado de Categorías";
-
             }
+
+            lblAdvertencia.Visible = mostrarAdvertencia;
+            if (mostrarAdvertencia)
+            {
+                lblAdvertencia.Text = "Recuerde: seleccione una categoria para continuar.";
+                lblAdvertencia.ForeColor = Color.DimGray;
+            }
+
+            txtFiltroCategoria.Visible = false;
+            lblFiltroCategoria.Visible = false;
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
@@ -98,7 +111,12 @@ namespace presentacion
 
                 if (negocio.tieneArticulosAsociados(seleccionado.IDCategoria))
                 {
-                    MessageBox.Show("No se puede eliminar la categoría porque tiene artículos asociados.");
+                    MessageBox.Show(
+                        "No se puede eliminar la categoría porque tiene artículos asociados.\n" +
+                        "Primero elimine los artículos de esa categoría.",
+                        "ATENCIÓN",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -127,6 +145,24 @@ namespace presentacion
             }
         }
 
+        private void txtFiltroCategoria_TextChanged(object sender, EventArgs e)
+        {
+            List<Categoria> listaFiltrada;
+            string filtro = txtFiltroCategoria.Text;
+
+            if (filtro.Length >=1)
+            {
+                listaFiltrada = listaCategoria.FindAll(x => x.Descripcion.ToUpper().StartsWith(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaCategoria;
+            }
+
+            dgvCategoria.DataSource = null;
+            dgvCategoria.DataSource = listaFiltrada;
+            dgvCategoria.Columns["IDCategoria"].Visible = false;
+        }
     }
 }
 

@@ -29,7 +29,15 @@ namespace presentacion
             lblAgregarCategoria.Text = "Modificar Categoría";
         }
 
-
+        private bool SoloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!char.IsDigit(caracter))
+                    return false;
+            }
+            return true;
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -40,7 +48,15 @@ namespace presentacion
             
                 if (string.IsNullOrWhiteSpace(txtDescripcionCategoria.Text))
                 {
-                    MessageBox.Show("¡¡ Debe ingresar una Descripcion !!");
+                    MessageBox.Show("¡¡ Debe ingresar una Descripcion !!", "Campo Vacio", 
+                        MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (SoloNumeros(txtDescripcionCategoria.Text))
+                {
+                    MessageBox.Show("¡¡ La descripción no puede contener solo números !!", "Error de Validacion",
+                        MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -50,6 +66,7 @@ namespace presentacion
                     categoria.Descripcion = txtDescripcionCategoria.Text;
                     negocio.agregar(categoria);
                     MessageBox.Show("Categoria agregada Correctamente");
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
@@ -58,6 +75,7 @@ namespace presentacion
                     MessageBox.Show("Categoria Modificada Correctamente");
                 }
 
+                this.DialogResult = DialogResult.OK;
                 Close();
 
             }
@@ -69,6 +87,7 @@ namespace presentacion
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

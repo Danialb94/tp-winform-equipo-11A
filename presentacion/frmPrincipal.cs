@@ -292,7 +292,7 @@ namespace presentacion
         ///CATEGORIAS
         private void listadoDeCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategoria categoria = new frmCategoria();
+            frmCategoria categoria = new frmCategoria(true);
             categoria.ShowDialog();
 
         }
@@ -300,23 +300,25 @@ namespace presentacion
         private void agregarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAltaCategoria alta = new frmAltaCategoria();
-            alta.ShowDialog();
-            frmCategoria categoria = new frmCategoria();
-            categoria.ShowDialog();
-            cargarArticulos();
+            if (alta.ShowDialog() == DialogResult.OK) 
+            {
+                frmCategoria categoria = new frmCategoria(false);
+                categoria.ShowDialog();
+                cargarArticulos();
+            }
 
         }
 
         private void modificarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategoria modificar = new frmCategoria(true, false);
+            frmCategoria modificar = new frmCategoria(true, false, true);
             modificar.ShowDialog();
             cargarArticulos();
         }
 
         private void eliminarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategoria eliminar = new frmCategoria(false, true);
+            frmCategoria eliminar = new frmCategoria(false, true,true);
             eliminar.ShowDialog();
             cargarArticulos();
         }
