@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.articuloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,9 +164,13 @@
             // 
             // dgvArticulos
             // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dgvArticulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(27, 116);
@@ -185,7 +190,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(26, 40);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(307, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(308, 32);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "Listado de Artículos";
             // 
@@ -205,16 +210,17 @@
             // lblFiltroArticulos
             // 
             this.lblFiltroArticulos.AutoSize = true;
+            this.lblFiltroArticulos.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltroArticulos.Location = new System.Drawing.Point(29, 92);
             this.lblFiltroArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroArticulos.Name = "lblFiltroArticulos";
-            this.lblFiltroArticulos.Size = new System.Drawing.Size(84, 16);
+            this.lblFiltroArticulos.Size = new System.Drawing.Size(131, 21);
             this.lblFiltroArticulos.TabIndex = 4;
             this.lblFiltroArticulos.Text = "Filtro Rápido";
             // 
             // txtboxFiltroArticulos
             // 
-            this.txtboxFiltroArticulos.Location = new System.Drawing.Point(140, 88);
+            this.txtboxFiltroArticulos.Location = new System.Drawing.Point(168, 89);
             this.txtboxFiltroArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroArticulos.Name = "txtboxFiltroArticulos";
             this.txtboxFiltroArticulos.Size = new System.Drawing.Size(277, 22);
@@ -224,10 +230,11 @@
             // lblCampoArticulo
             // 
             this.lblCampoArticulo.AutoSize = true;
+            this.lblCampoArticulo.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampoArticulo.Location = new System.Drawing.Point(25, 607);
             this.lblCampoArticulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCampoArticulo.Name = "lblCampoArticulo";
-            this.lblCampoArticulo.Size = new System.Drawing.Size(54, 16);
+            this.lblCampoArticulo.Size = new System.Drawing.Size(79, 21);
             this.lblCampoArticulo.TabIndex = 6;
             this.lblCampoArticulo.Text = "Campo:";
             // 
@@ -255,26 +262,28 @@
             // lblCriterioArticulos
             // 
             this.lblCriterioArticulos.AutoSize = true;
+            this.lblCriterioArticulos.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCriterioArticulos.Location = new System.Drawing.Point(287, 607);
             this.lblCriterioArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCriterioArticulos.Name = "lblCriterioArticulos";
-            this.lblCriterioArticulos.Size = new System.Drawing.Size(52, 16);
+            this.lblCriterioArticulos.Size = new System.Drawing.Size(86, 21);
             this.lblCriterioArticulos.TabIndex = 9;
             this.lblCriterioArticulos.Text = "Criterio:";
             // 
             // lblFiltroAvanzadoArticulos
             // 
             this.lblFiltroAvanzadoArticulos.AutoSize = true;
+            this.lblFiltroAvanzadoArticulos.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltroAvanzadoArticulos.Location = new System.Drawing.Point(547, 607);
             this.lblFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFiltroAvanzadoArticulos.Name = "lblFiltroAvanzadoArticulos";
-            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(103, 16);
+            this.lblFiltroAvanzadoArticulos.Size = new System.Drawing.Size(165, 21);
             this.lblFiltroAvanzadoArticulos.TabIndex = 10;
             this.lblFiltroAvanzadoArticulos.Text = "Filtro Avanzado:";
             // 
             // txtboxFiltroAvanzadoArticulos
             // 
-            this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(679, 602);
+            this.txtboxFiltroAvanzadoArticulos.Location = new System.Drawing.Point(691, 605);
             this.txtboxFiltroAvanzadoArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFiltroAvanzadoArticulos.Name = "txtboxFiltroAvanzadoArticulos";
             this.txtboxFiltroAvanzadoArticulos.Size = new System.Drawing.Size(132, 22);
@@ -282,7 +291,8 @@
             // 
             // btnFiltroAvanzado
             // 
-            this.btnFiltroAvanzado.Location = new System.Drawing.Point(828, 598);
+            this.btnFiltroAvanzado.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(844, 600);
             this.btnFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(100, 28);
@@ -293,17 +303,20 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(246, 533);
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAgregar.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(231, 533);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(161, 37);
+            this.btnAgregar.Size = new System.Drawing.Size(175, 37);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar un Artículo";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.agregarArticulosToolStripMenuItem_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(580, 533);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
@@ -315,6 +328,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(747, 533);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
@@ -326,13 +340,15 @@
             // 
             // btnDetalle
             // 
+            this.btnDetalle.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDetalle.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetalle.Location = new System.Drawing.Point(412, 533);
             this.btnDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(161, 37);
             this.btnDetalle.TabIndex = 2;
             this.btnDetalle.Text = "Ver Detalle";
-            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.UseVisualStyleBackColor = false;
             this.btnDetalle.Click += new System.EventHandler(this.verDetalleArticuloToolStripMenuItem_Click);
             // 
             // btnNavegarAtras
@@ -369,7 +385,8 @@
             // 
             // btnAgregarImg
             // 
-            this.btnAgregarImg.Location = new System.Drawing.Point(931, 484);
+            this.btnAgregarImg.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImg.Location = new System.Drawing.Point(932, 484);
             this.btnAgregarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarImg.Name = "btnAgregarImg";
             this.btnAgregarImg.Size = new System.Drawing.Size(88, 44);
@@ -380,10 +397,11 @@
             // 
             // btnModificarImg
             // 
-            this.btnModificarImg.Location = new System.Drawing.Point(1020, 484);
+            this.btnModificarImg.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarImg.Location = new System.Drawing.Point(1021, 484);
             this.btnModificarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarImg.Name = "btnModificarImg";
-            this.btnModificarImg.Size = new System.Drawing.Size(88, 45);
+            this.btnModificarImg.Size = new System.Drawing.Size(93, 45);
             this.btnModificarImg.TabIndex = 6;
             this.btnModificarImg.Text = "Modificar Imagen";
             this.btnModificarImg.UseVisualStyleBackColor = true;
@@ -391,7 +409,8 @@
             // 
             // btnEliminarImg
             // 
-            this.btnEliminarImg.Location = new System.Drawing.Point(1110, 484);
+            this.btnEliminarImg.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarImg.Location = new System.Drawing.Point(1114, 484);
             this.btnEliminarImg.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarImg.Name = "btnEliminarImg";
             this.btnEliminarImg.Size = new System.Drawing.Size(88, 44);
@@ -404,6 +423,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1222, 640);
             this.Controls.Add(this.btnEliminarImg);
             this.Controls.Add(this.btnModificarImg);
@@ -426,10 +446,12 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal Catálogo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

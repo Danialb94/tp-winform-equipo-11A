@@ -86,12 +86,14 @@ namespace presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione una marca para eliminar.");
+                    MessageBox.Show("Seleccione una marca para eliminar.","Seleccion requerida",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                MessageBox.Show("Ocurrió un error: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

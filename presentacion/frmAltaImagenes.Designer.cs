@@ -51,12 +51,12 @@
             // 
             // pbxImagen
             // 
-            this.pbxImagen.Location = new System.Drawing.Point(329, 86);
+            this.pbxImagen.Location = new System.Drawing.Point(336, 81);
             this.pbxImagen.MaximumSize = new System.Drawing.Size(267, 314);
             this.pbxImagen.MinimumSize = new System.Drawing.Size(267, 314);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(267, 314);
-            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImagen.TabIndex = 0;
             this.pbxImagen.TabStop = false;
             // 
@@ -85,7 +85,7 @@
             this.lblIngresoURL.AutoSize = true;
             this.lblIngresoURL.Location = new System.Drawing.Point(52, 271);
             this.lblIngresoURL.Name = "lblIngresoURL";
-            this.lblIngresoURL.Size = new System.Drawing.Size(80, 16);
+            this.lblIngresoURL.Size = new System.Drawing.Size(85, 17);
             this.lblIngresoURL.TabIndex = 3;
             this.lblIngresoURL.Text = "Nueva URL:";
             // 
@@ -95,7 +95,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Bookman Old Style", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(192, 37);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(240, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(241, 32);
             this.lblTitulo.TabIndex = 4;
             this.lblTitulo.Text = "Agregar Imagen";
             // 
@@ -104,7 +104,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Location = new System.Drawing.Point(78, 131);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(54, 16);
+            this.lblCodigo.Size = new System.Drawing.Size(56, 17);
             this.lblCodigo.TabIndex = 5;
             this.lblCodigo.Text = "Código:";
             // 
@@ -123,7 +123,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(73, 159);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(59, 16);
+            this.lblNombre.Size = new System.Drawing.Size(62, 17);
             this.lblNombre.TabIndex = 7;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -165,7 +165,7 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Location = new System.Drawing.Point(50, 187);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(82, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(86, 17);
             this.lblDescripcion.TabIndex = 12;
             this.lblDescripcion.Text = "Descripción:";
             // 
@@ -182,7 +182,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Location = new System.Drawing.Point(84, 215);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(48, 16);
+            this.lblMarca.Size = new System.Drawing.Size(51, 17);
             this.lblMarca.TabIndex = 14;
             this.lblMarca.Text = "Marca:";
             // 
@@ -199,7 +199,7 @@
             this.lbl.AutoSize = true;
             this.lbl.Location = new System.Drawing.Point(63, 243);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(69, 16);
+            this.lbl.Size = new System.Drawing.Size(73, 17);
             this.lbl.TabIndex = 16;
             this.lbl.Text = "Categoría:";
             // 

@@ -25,6 +25,12 @@ namespace presentacion
         ///ARTICULOS
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+
+            MessageBox.Show("¡Bienvenido! Gracias por utilizar nuestro sistema.",
+                    "Bienvenida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            
             cargarArticulos();
 
             cboCampoArticulo.Items.Add("Código");
@@ -113,7 +119,7 @@ namespace presentacion
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un artículo primero.");
+                MessageBox.Show("Por favor, seleccione un artículo primero.", "Seleccion requerida",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             cargarArticulos();
 
@@ -136,7 +142,8 @@ namespace presentacion
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, seleccione un artículo primero.");
+                    MessageBox.Show("Por favor, seleccione un artículo primero.", "Selección requerida",
+                                    MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
                 cargarArticulos();
             }
@@ -158,7 +165,8 @@ namespace presentacion
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un artículo primero.");
+                MessageBox.Show("Por favor, seleccione un artículo primero.", "Selección requerida",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             cargarArticulos();
         }
@@ -237,12 +245,16 @@ namespace presentacion
         {
             if (cboCampoArticulo.SelectedIndex < 0)
             {
-                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.","Filtro inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return true;
             }
             if (cboCriterioArticulos.SelectedIndex < 0)
             {
-                MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
+                MessageBox.Show("Por favor, seleccione el criterio para filtrar.","Filtro inválido",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return true;
             }
             string campoSeleccionado = cboCampoArticulo.SelectedItem.ToString();
@@ -251,13 +263,17 @@ namespace presentacion
             {
                 if (string.IsNullOrEmpty(txtboxFiltroAvanzadoArticulos.Text))
                 {
-                    MessageBox.Show("Por favor ingrese un valor para filtrar.");
+                    MessageBox.Show("Por favor ingrese un valor para filtrar.","Dato requerido",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                     return true;
                 }
 
                 if (!soloNumeros(txtboxFiltroAvanzadoArticulos.Text))
                 {
-                    MessageBox.Show("Solo se aceptan números para el precio.");
+                    MessageBox.Show("Solo se aceptan números para el precio.","Dato inválido",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
                     return true;
                 }
             }
@@ -331,7 +347,7 @@ namespace presentacion
             {
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione un artículo para continuar");
+                    MessageBox.Show("Seleccione un artículo para continuar","Seleccion requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Articulo artActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -352,7 +368,7 @@ namespace presentacion
             {
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione un artículo para continuar");
+                    MessageBox.Show("Seleccione un artículo para continuar", "Seleccion requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Articulo artActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -373,7 +389,7 @@ namespace presentacion
             {
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione un artículo para continuar");
+                    MessageBox.Show("Seleccione un artículo para continuar", "Seleccion requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -392,7 +408,7 @@ namespace presentacion
             {
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione un artículo para continuar");
+                    MessageBox.Show("Seleccione un artículo para continuar", "Seleccion requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -411,7 +427,7 @@ namespace presentacion
             {
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    MessageBox.Show("Seleccione un artículo para continuar");
+                    MessageBox.Show("Seleccione un artículo para continuar", "Seleccion requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -440,6 +456,13 @@ namespace presentacion
             }
         }
 
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Gracias por utilizar nuestro sistema. ¡Hasta pronto!",
+                    "Cerrar aplicación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+        }
     }
 }
 

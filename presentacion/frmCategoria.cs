@@ -84,7 +84,7 @@ namespace presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar Categoria: " + ex.Message);
+                MessageBox.Show("Error al cargar Categoria: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         
         }
@@ -135,13 +135,13 @@ namespace presentacion
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error al eliminar: " + ex.Message);
+                        MessageBox.Show("Error al eliminar: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Por favor seleccione una categoría primero.");
+                MessageBox.Show("Por favor seleccione una categoría primero.", "Seleccion requerida", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 

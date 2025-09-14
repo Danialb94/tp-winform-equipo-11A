@@ -42,34 +42,38 @@ namespace presentacion
             // dgvCategoria
             // 
             this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategoria.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCategoria.Location = new System.Drawing.Point(26, 121);
+            this.dgvCategoria.Location = new System.Drawing.Point(18, 105);
+            this.dgvCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersWidth = 51;
             this.dgvCategoria.RowTemplate.Height = 24;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategoria.Size = new System.Drawing.Size(307, 319);
+            this.dgvCategoria.Size = new System.Drawing.Size(307, 339);
             this.dgvCategoria.TabIndex = 0;
             // 
             // lblTituloCategoria
             // 
             this.lblTituloCategoria.AutoSize = true;
-            this.lblTituloCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCategoria.Location = new System.Drawing.Point(20, 32);
+            this.lblTituloCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCategoria.Location = new System.Drawing.Point(12, 20);
             this.lblTituloCategoria.Name = "lblTituloCategoria";
-            this.lblTituloCategoria.Size = new System.Drawing.Size(313, 32);
+            this.lblTituloCategoria.Size = new System.Drawing.Size(325, 36);
             this.lblTituloCategoria.TabIndex = 1;
             this.lblTituloCategoria.Text = "Listado de Categorias";
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(190, 460);
+            this.btnEliminar.Location = new System.Drawing.Point(181, 452);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(143, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(144, 55);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -78,13 +82,23 @@ namespace presentacion
             // 
             // btnModificar
             // 
+            this.btnModificar.AutoEllipsis = true;
+            this.btnModificar.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnModificar.FlatAppearance.BorderSize = 2;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(26, 462);
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.Location = new System.Drawing.Point(18, 452);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(143, 38);
+            this.btnModificar.Size = new System.Drawing.Size(144, 55);
             this.btnModificar.TabIndex = 0;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Visible = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -92,7 +106,7 @@ namespace presentacion
             // 
             this.lblAdvertencia.AutoSize = true;
             this.lblAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdvertencia.Location = new System.Drawing.Point(23, 79);
+            this.lblAdvertencia.Location = new System.Drawing.Point(15, 75);
             this.lblAdvertencia.Name = "lblAdvertencia";
             this.lblAdvertencia.Size = new System.Drawing.Size(0, 17);
             this.lblAdvertencia.TabIndex = 2;
@@ -100,7 +114,8 @@ namespace presentacion
             // txtFiltroCategoria
             // 
             this.txtFiltroCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltroCategoria.Location = new System.Drawing.Point(162, 83);
+            this.txtFiltroCategoria.Location = new System.Drawing.Point(154, 75);
+            this.txtFiltroCategoria.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFiltroCategoria.Name = "txtFiltroCategoria";
             this.txtFiltroCategoria.Size = new System.Drawing.Size(171, 22);
             this.txtFiltroCategoria.TabIndex = 3;
@@ -110,8 +125,8 @@ namespace presentacion
             // 
             this.lblFiltroCategoria.AutoSize = true;
             this.lblFiltroCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltroCategoria.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFiltroCategoria.Location = new System.Drawing.Point(29, 85);
+            this.lblFiltroCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFiltroCategoria.Location = new System.Drawing.Point(21, 75);
             this.lblFiltroCategoria.Name = "lblFiltroCategoria";
             this.lblFiltroCategoria.Size = new System.Drawing.Size(106, 17);
             this.lblFiltroCategoria.TabIndex = 4;
@@ -119,9 +134,10 @@ namespace presentacion
             // 
             // frmCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 530);
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(359, 531);
             this.Controls.Add(this.lblFiltroCategoria);
             this.Controls.Add(this.txtFiltroCategoria);
             this.Controls.Add(this.lblAdvertencia);
@@ -129,6 +145,9 @@ namespace presentacion
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblTituloCategoria);
             this.Controls.Add(this.dgvCategoria);
+            this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categorias";
