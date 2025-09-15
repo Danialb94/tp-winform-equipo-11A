@@ -60,35 +60,44 @@ namespace presentacion
                 articulo.Marca = (Marca)cmbMarcaArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cmbCategoriaArticulo.SelectedItem;
                 articulo.Precio = decimal.Parse(txtboxPrecioArticulo.Text);
-                //string urlImg = txtboxUrlImagenArticulo.Text;
 
-                if (articulo.IdArticulo != 0)
+                if ( negocio.existeArticulo(articulo.Codigo, articulo.Nombre))
                 {
-                    cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
-                    cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
-                    if (flagModificado != -1)
-                    {
-                        negocio.modificarArticulo(articulo, articulo.Imagenes, true);
-                    }
-                    else
-                    {
-
-                        negocio.modificarArticulo(articulo, articulo.Imagenes, false);
-                    }
-
-                    MessageBox.Show("Modificado exitosamente");
+                    MessageBox.Show("Ya existe un artículo con este Código o Nombre.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnAceptarNuevoArticulo.Enabled = false;
+                    
                 }
                 else
                 {
+                        if (articulo.IdArticulo != 0)
+                        {
+                            cmbMarcaArticulo.SelectedValue = articulo.Marca.IdMarca;
+                            cmbCategoriaArticulo.SelectedValue = articulo.Categoria.IDCategoria;
+                            if (flagModificado != -1)
+                            {
+                                negocio.modificarArticulo(articulo, articulo.Imagenes, true);
+                            }
+                            else
+                            {
 
-                    negocio.agregar(articulo, listaImagenes);
-                    MessageBox.Show("Articulo agregado exitosamente");
+                                negocio.modificarArticulo(articulo, articulo.Imagenes, false);
+                            }
+
+                            MessageBox.Show("Modificado exitosamente");
+                        }
+                        else
+                        {
+
+                            negocio.agregar(articulo, listaImagenes);
+                            MessageBox.Show("Articulo agregado exitosamente");
+                        }
+
                 }
 
-
-
-                Close();
+                        Close();
             }
+                   
+
             catch (Exception ex)
             {
 
@@ -312,6 +321,6 @@ namespace presentacion
             txtboxUrlImagenArticulo.Text = "";
         }
 
-
+        
     }
 }

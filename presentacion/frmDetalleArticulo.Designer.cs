@@ -42,13 +42,15 @@
             this.lblDetallePrecio = new System.Windows.Forms.Label();
             this.pboImagen = new System.Windows.Forms.PictureBox();
             this.lblDetalleArticulo = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // txtboxDetalleCodigo
             // 
+            this.txtboxDetalleCodigo.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetalleCodigo.Location = new System.Drawing.Point(192, 105);
-            this.txtboxDetalleCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetalleCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetalleCodigo.Name = "txtboxDetalleCodigo";
             this.txtboxDetalleCodigo.ReadOnly = true;
             this.txtboxDetalleCodigo.Size = new System.Drawing.Size(132, 22);
@@ -56,8 +58,9 @@
             // 
             // txtboxDetalleNombre
             // 
+            this.txtboxDetalleNombre.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetalleNombre.Location = new System.Drawing.Point(192, 170);
-            this.txtboxDetalleNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetalleNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetalleNombre.Name = "txtboxDetalleNombre";
             this.txtboxDetalleNombre.ReadOnly = true;
             this.txtboxDetalleNombre.Size = new System.Drawing.Size(132, 22);
@@ -65,8 +68,9 @@
             // 
             // txtboxDetalleDescripcion
             // 
+            this.txtboxDetalleDescripcion.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetalleDescripcion.Location = new System.Drawing.Point(192, 235);
-            this.txtboxDetalleDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetalleDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetalleDescripcion.Name = "txtboxDetalleDescripcion";
             this.txtboxDetalleDescripcion.ReadOnly = true;
             this.txtboxDetalleDescripcion.Size = new System.Drawing.Size(132, 22);
@@ -74,8 +78,9 @@
             // 
             // txtboxDetalleMarca
             // 
+            this.txtboxDetalleMarca.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetalleMarca.Location = new System.Drawing.Point(192, 300);
-            this.txtboxDetalleMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetalleMarca.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetalleMarca.Name = "txtboxDetalleMarca";
             this.txtboxDetalleMarca.ReadOnly = true;
             this.txtboxDetalleMarca.Size = new System.Drawing.Size(132, 22);
@@ -83,8 +88,9 @@
             // 
             // txtboxDetalleCategoria
             // 
+            this.txtboxDetalleCategoria.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetalleCategoria.Location = new System.Drawing.Point(192, 366);
-            this.txtboxDetalleCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetalleCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetalleCategoria.Name = "txtboxDetalleCategoria";
             this.txtboxDetalleCategoria.ReadOnly = true;
             this.txtboxDetalleCategoria.Size = new System.Drawing.Size(132, 22);
@@ -92,8 +98,9 @@
             // 
             // txtboxDetallePrecio
             // 
+            this.txtboxDetallePrecio.BackColor = System.Drawing.SystemColors.Window;
             this.txtboxDetallePrecio.Location = new System.Drawing.Point(192, 431);
-            this.txtboxDetallePrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxDetallePrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxDetallePrecio.Name = "txtboxDetallePrecio";
             this.txtboxDetallePrecio.ReadOnly = true;
             this.txtboxDetallePrecio.Size = new System.Drawing.Size(132, 22);
@@ -105,7 +112,7 @@
             this.lblDetalleCodigo.Location = new System.Drawing.Point(84, 108);
             this.lblDetalleCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetalleCodigo.Name = "lblDetalleCodigo";
-            this.lblDetalleCodigo.Size = new System.Drawing.Size(54, 16);
+            this.lblDetalleCodigo.Size = new System.Drawing.Size(56, 17);
             this.lblDetalleCodigo.TabIndex = 6;
             this.lblDetalleCodigo.Text = "Código:";
             // 
@@ -115,7 +122,7 @@
             this.lblDetalleNombre.Location = new System.Drawing.Point(79, 174);
             this.lblDetalleNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetalleNombre.Name = "lblDetalleNombre";
-            this.lblDetalleNombre.Size = new System.Drawing.Size(59, 16);
+            this.lblDetalleNombre.Size = new System.Drawing.Size(62, 17);
             this.lblDetalleNombre.TabIndex = 7;
             this.lblDetalleNombre.Text = "Nombre:";
             // 
@@ -125,7 +132,7 @@
             this.lblDetalleDescripcion.Location = new System.Drawing.Point(53, 239);
             this.lblDetalleDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetalleDescripcion.Name = "lblDetalleDescripcion";
-            this.lblDetalleDescripcion.Size = new System.Drawing.Size(82, 16);
+            this.lblDetalleDescripcion.Size = new System.Drawing.Size(86, 17);
             this.lblDetalleDescripcion.TabIndex = 8;
             this.lblDetalleDescripcion.Text = "Descripción:";
             // 
@@ -135,7 +142,7 @@
             this.lblDetalleMarca.Location = new System.Drawing.Point(88, 300);
             this.lblDetalleMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetalleMarca.Name = "lblDetalleMarca";
-            this.lblDetalleMarca.Size = new System.Drawing.Size(48, 16);
+            this.lblDetalleMarca.Size = new System.Drawing.Size(51, 17);
             this.lblDetalleMarca.TabIndex = 9;
             this.lblDetalleMarca.Text = "Marca:";
             // 
@@ -145,7 +152,7 @@
             this.lblDetalleCategoria.Location = new System.Drawing.Point(68, 366);
             this.lblDetalleCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetalleCategoria.Name = "lblDetalleCategoria";
-            this.lblDetalleCategoria.Size = new System.Drawing.Size(69, 16);
+            this.lblDetalleCategoria.Size = new System.Drawing.Size(73, 17);
             this.lblDetalleCategoria.TabIndex = 10;
             this.lblDetalleCategoria.Text = "Categoria:";
             // 
@@ -155,14 +162,14 @@
             this.lblDetallePrecio.Location = new System.Drawing.Point(88, 431);
             this.lblDetallePrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetallePrecio.Name = "lblDetallePrecio";
-            this.lblDetallePrecio.Size = new System.Drawing.Size(49, 16);
+            this.lblDetallePrecio.Size = new System.Drawing.Size(52, 17);
             this.lblDetallePrecio.TabIndex = 11;
             this.lblDetallePrecio.Text = "Precio:";
             // 
             // pboImagen
             // 
             this.pboImagen.Location = new System.Drawing.Point(369, 153);
-            this.pboImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pboImagen.Margin = new System.Windows.Forms.Padding(4);
             this.pboImagen.Name = "pboImagen";
             this.pboImagen.Size = new System.Drawing.Size(237, 256);
             this.pboImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,11 +187,30 @@
             this.lblDetalleArticulo.TabIndex = 13;
             this.lblDetalleArticulo.Text = "Detalle del Articulo:";
             // 
+            // btnVolver
+            // 
+            this.btnVolver.AutoEllipsis = true;
+            this.btnVolver.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue;
+            this.btnVolver.FlatAppearance.BorderSize = 2;
+            this.btnVolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnVolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Location = new System.Drawing.Point(431, 451);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(131, 56);
+            this.btnVolver.TabIndex = 14;
+            this.btnVolver.Text = "Volver al Menú Principal";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 544);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblDetalleArticulo);
             this.Controls.Add(this.pboImagen);
             this.Controls.Add(this.lblDetallePrecio);
@@ -199,7 +225,8 @@
             this.Controls.Add(this.txtboxDetalleDescripcion);
             this.Controls.Add(this.txtboxDetalleNombre);
             this.Controls.Add(this.txtboxDetalleCodigo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(646, 591);
             this.MinimumSize = new System.Drawing.Size(646, 591);
             this.Name = "frmDetalleArticulo";
@@ -227,5 +254,6 @@
         private System.Windows.Forms.Label lblDetallePrecio;
         private System.Windows.Forms.PictureBox pboImagen;
         private System.Windows.Forms.Label lblDetalleArticulo;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

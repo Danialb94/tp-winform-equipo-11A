@@ -13,6 +13,8 @@ namespace presentacion
 {
     public partial class frmDetalleArticulo : Form
     {
+        private Articulo dgvArticulos;
+
         public frmDetalleArticulo(Articulo articulo)
         {
             InitializeComponent();
@@ -40,7 +42,10 @@ namespace presentacion
             }
         }
 
-
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+           this.Close();
+        }
     }
 
 }

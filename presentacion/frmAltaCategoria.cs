@@ -60,19 +60,30 @@ namespace presentacion
                     return;
                 }
 
+                if (negocio.ExisteCategoria(txtDescripcionCategoria.Text))
+                {
+                    MessageBox.Show("La categoría '" + txtDescripcionCategoria.Text + "' ya existe.",
+                                    "Duplicado",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (categoria == null)
                 {
                     categoria = new Categoria();
                     categoria.Descripcion = txtDescripcionCategoria.Text;
                     negocio.agregar(categoria);
-                    MessageBox.Show("Categoria agregada Correctamente");
+                    MessageBox.Show("Categoria agregada Correctamente", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
                     categoria.Descripcion = txtDescripcionCategoria.Text;
                     negocio.modificar(categoria);
-                    MessageBox.Show("Categoria Modificada Correctamente");
+                    MessageBox.Show("Categoria Modificada Correctamente", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -91,6 +102,6 @@ namespace presentacion
             this.Close();
         }
 
-
+        
     }
 }

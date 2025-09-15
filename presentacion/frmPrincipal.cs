@@ -30,7 +30,7 @@ namespace presentacion
                     "Bienvenida",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-            
+
             cargarArticulos();
 
             cboCampoArticulo.Items.Add("Código");
@@ -516,12 +516,26 @@ namespace presentacion
             }
         }
 
+        private void pbxArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Gracias por utilizar nuestro sistema. ¡Hasta pronto!",
+            DialogResult respuesta = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Cerrar aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                MessageBox.Show("Gracias por utilizar nuestro sistema. ¡Hasta pronto!",
                     "Cerrar aplicación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
         }
     }
 }

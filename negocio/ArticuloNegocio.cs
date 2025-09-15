@@ -322,6 +322,31 @@ namespace negocio
             }
             ;
         }
+
+        public bool existeArticulo(string codigo, string nombre)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) AS Cantidad FROM ARTICULOS WHERE Codigo = @codigo OR Nombre = @nombre");
+                datos.setearParametro("@codigo", codigo);
+                datos.setearParametro("@nombre", nombre);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    return (int)datos.Lector["Cantidad"] > 0;
+                }
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 
 }

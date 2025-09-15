@@ -115,5 +115,10 @@ namespace presentacion
             dgvMarca.DataSource = listaFiltrada;
             dgvMarca.Columns["IdMarca"].Visible = false;
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

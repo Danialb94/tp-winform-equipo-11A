@@ -163,6 +163,11 @@ namespace presentacion
             dgvCategoria.DataSource = listaFiltrada;
             dgvCategoria.Columns["IDCategoria"].Visible = false;
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
